@@ -48,7 +48,7 @@ public class Movement : MonoBehaviour
             jumpBufferCounter -= Time.deltaTime;
         }
 
-        if (jumpBufferCounter > 0f && coyoteTimeCounter > 0 || !jumped) //makes the player jump
+        if (jumpBufferCounter > 0f && coyoteTimeCounter > 0 || !jumped && Input.GetKeyDown("w")) //makes the player jump
         {
             jumped = true;
             player.velocity = new Vector2(player.velocity.x, jumpHeight);
