@@ -68,6 +68,13 @@ public class Movement : MonoBehaviour
             jumped = false;
         }
 
+        // Makes falling faster, so it feels better
+        if (!IsGrounded() && player.velocity.y < 0) 
+        {
+            player.velocity = new Vector2(player.velocity.x, player.velocity.y - 0.02f);
+        }
+
+        //You can fall even faster if you want <3
         if(!IsGrounded() && Input.GetKey("s"))
         {
             player.velocity = new Vector2(player.velocity.x, player.velocity.y - 0.5f);
