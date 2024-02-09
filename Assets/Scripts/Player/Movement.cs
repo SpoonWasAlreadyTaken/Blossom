@@ -10,13 +10,14 @@ public class Movement : MonoBehaviour
 
     //Jump customization values
     [SerializeField] private float jumpHeight = 5f;
-    [SerializeField] private bool doubleJump = false;
+    [SerializeField] private bool doubleJump = false; //makes coyote time and jump buffering more or less useless
     [SerializeField] private float coyoteTime = 0.2f; //time you can jump after being off the ground
     [SerializeField] private float jumpBuffer = 0.3f; //time that your jumps can be queued up
 
 
     [SerializeField] private Transform groundCheck;
     [SerializeField] private LayerMask groundLayer;
+    [SerializeField] private LayerMask platformLayer;
 
     //Private values for movement controller. Don't touch
     private bool jumped = true;
@@ -39,7 +40,7 @@ public class Movement : MonoBehaviour
             coyoteTimeCounter -= Time.deltaTime;
         }
 
-        if (Input.GetKeyDown("w"))
+        if (Input.GetButtonDown("Jump"))
         {
             jumpBufferCounter = jumpBuffer;
         }
@@ -48,7 +49,7 @@ public class Movement : MonoBehaviour
             jumpBufferCounter -= Time.deltaTime;
         }
 
-        if (jumpBufferCounter > 0f && coyoteTimeCounter > 0 || !jumped && Input.GetKeyDown("w")) //makes the player jump
+        if (jumpBufferCounter > 0f && coyoteTimeCounter > 0 || !jumped && Input.GetButtonDown("Jump")) //makes the player jump
         {
             jumped = true;
             player.velocity = new Vector2(player.velocity.x, jumpHeight);
@@ -56,7 +57,7 @@ public class Movement : MonoBehaviour
             jumpBufferCounter = 0f;
         }
 
-        if (Input.GetKeyUp("w") && player.velocity.y > 0f) //makes it so that the player can stop a bit of their jump height if they let go of the jump key
+        if (Input.GetButtonUp("Jump") && player.velocity.y > 0f) //makes it so that the player can stop a bit of their jump height if they let go of the jump key
         {
             player.velocity = new Vector2(player.velocity.x, player.velocity.y * .7f);
 
@@ -67,6 +68,12 @@ public class Movement : MonoBehaviour
         {
             jumped = false;
         }
+
+        if (!IsGrounded() && player.velocity.y < 0)
+        {
+            player.velocity = new Vector2(player.velocity.x, player.velocity.y - .03f);
+        }
+
 
         Flip(); 
     }
@@ -82,6 +89,7 @@ public class Movement : MonoBehaviour
     {
         return Physics2D.OverlapCircle(groundCheck.position, 0.1f, groundLayer);
     }
+
 
     //flips the player in the direction its moveing
     private void Flip()
