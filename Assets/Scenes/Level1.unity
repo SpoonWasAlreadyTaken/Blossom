@@ -506,7 +506,8 @@ MonoBehaviour:
   movementSpeed: 9
   jumpHeight: 10
   doubleJump: 0
-  jumpBuffer: 0.2
+  coyoteTime: 0.2
+  jumpBuffer: 0.3
   groundCheck: {fileID: 26193429}
   groundLayer:
     serializedVersion: 2
