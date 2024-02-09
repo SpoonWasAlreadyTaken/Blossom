@@ -68,6 +68,11 @@ public class Movement : MonoBehaviour
             jumped = false;
         }
 
+        if(!IsGrounded() && Input.GetKey("s"))
+        {
+            player.velocity = new Vector2(player.velocity.x, player.velocity.y - 0.5f);
+        }
+
         Flip(); 
     }
 
