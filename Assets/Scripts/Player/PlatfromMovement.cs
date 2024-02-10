@@ -43,7 +43,7 @@ public class PlatfromMovement : MonoBehaviour
         BoxCollider2D platformCollider = currentPlatform.GetComponent<BoxCollider2D>();
         Physics2D.IgnoreCollision(playerCollider, platformCollider);
 
-        yield return new WaitForSeconds(disableCollider);
+        yield return new WaitForSeconds(1f);
         Physics2D.IgnoreCollision(playerCollider, platformCollider, false);
     }
 }

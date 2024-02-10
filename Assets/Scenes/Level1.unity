@@ -1287,7 +1287,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.233908, y: 1.8555847, z: -10}
+  m_LocalPosition: {x: 0, y: -0.5, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2480,7 +2480,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerCollider: {fileID: 1295151909}
-  disableCollider: 2
+  disableCollider: 1
 --- !u!114 &1295151908
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2503,6 +2503,7 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 1024
+  anim: {fileID: 1295151911}
 --- !u!70 &1295151909
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -2535,8 +2536,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.000000059604645, y: -0.51637506}
-  m_Size: {x: 0.8134991, y: 1.5272498}
+  m_Offset: {x: -0.0014505386, y: -0.53088665}
+  m_Size: {x: 0.7235279, y: 1.4982266}
   m_Direction: 0
 --- !u!50 &1295151910
 Rigidbody2D:
@@ -2553,7 +2554,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1.2
+  m_GravityScale: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -2564,7 +2565,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 1
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!95 &1295151911
 Animator:
   serializedVersion: 5
