@@ -17,7 +17,6 @@ public class Movement : MonoBehaviour
 
     [SerializeField] private Transform groundCheck;
     [SerializeField] private LayerMask groundLayer;
-    [SerializeField] private LayerMask platformLayer;
 
     //Private values for movement controller. Don't touch
     private bool jumped = true;
