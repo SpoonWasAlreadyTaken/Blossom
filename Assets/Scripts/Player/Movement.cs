@@ -120,12 +120,12 @@ public class Movement : MonoBehaviour
             anim.SetBool("Walking", false);
         }
 
-        if (player.velocity.y > 0)
+        if (player.velocity.y > 0.2)
         {
             anim.SetBool("Jumping", true);
             anim.SetBool("Falling", false);
         }
-        else if (player.velocity.y < 0)
+        else if (player.velocity.y < -0.2)
         {
             anim.SetBool("Falling", true);
             anim.SetBool("Jumping", false);
