@@ -25,11 +25,6 @@ public class Dialogue : MonoBehaviour
     private int index;
 
 
-    private void Start()
-    {
-        npcName.text = string.Empty;
-    }
-
     void Update()
     {
         distance = Vector2.Distance(transform.position, playerCharacter.transform.position);
