@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlatfromMovement : MonoBehaviour
 {
     [SerializeField] private Collider2D playerCollider;
+    [SerializeField] private float disableCollider = 1f;
 
     //private variables for script. Don't touch
     private GameObject currentPlatform;
@@ -36,13 +37,13 @@ public class PlatfromMovement : MonoBehaviour
             currentPlatform = null;
         }
     }
-
+    
     private IEnumerator DisableCollision()
     {
         BoxCollider2D platformCollider = currentPlatform.GetComponent<BoxCollider2D>();
         Physics2D.IgnoreCollision(playerCollider, platformCollider);
 
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(disableCollider);
         Physics2D.IgnoreCollision(playerCollider, platformCollider, false);
     }
 }
