@@ -17,6 +17,7 @@ public class Movement : MonoBehaviour
 
     [SerializeField] private Transform groundCheck;
     [SerializeField] private LayerMask groundLayer;
+    [SerializeField] private Animator anim;
     
 
     //Private values for movement controller. Don't touch
@@ -75,6 +76,8 @@ public class Movement : MonoBehaviour
         }
 
 
+        UpdateAnimation();
+
         Flip(); 
     }
 
@@ -103,6 +106,36 @@ public class Movement : MonoBehaviour
         }
     }
 
+
+    //Animation controls, compares the players velocity to determine its movement.
+    private void UpdateAnimation()
+
+    {
+        if (Mathf.Abs(player.velocity.x) > 0f)
+        {
+            anim.SetBool("Walking", true);
+        }
+        else
+        {
+            anim.SetBool("Walking", false);
+        }
+
+        if (player.velocity.y > 0)
+        {
+            anim.SetBool("Jumping", true);
+            anim.SetBool("Falling", false);
+        }
+        else if (player.velocity.y < 0)
+        {
+            anim.SetBool("Falling", true);
+            anim.SetBool("Jumping", false);
+        }
+        else
+        {
+            anim.SetBool("Jumping", false);
+            anim.SetBool("Falling", false);
+        }
+    }
 
     //Object visibility
     private void OnDrawGizmos()
