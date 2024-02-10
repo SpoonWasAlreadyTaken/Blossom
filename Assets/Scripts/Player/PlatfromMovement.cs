@@ -37,13 +37,13 @@ public class PlatfromMovement : MonoBehaviour
             currentPlatform = null;
         }
     }
-    
+
     private IEnumerator DisableCollision()
     {
-        BoxCollider2D platformCollider = currentPlatform.GetComponent<BoxCollider2D>();
+        Collider2D platformCollider = currentPlatform.GetComponent<Collider2D>();
         Physics2D.IgnoreCollision(playerCollider, platformCollider);
 
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(disableCollider);
         Physics2D.IgnoreCollision(playerCollider, platformCollider, false);
     }
 }
