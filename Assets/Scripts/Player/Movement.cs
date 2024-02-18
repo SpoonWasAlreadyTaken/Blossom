@@ -72,7 +72,7 @@ public class Movement : MonoBehaviour
 
         if (!IsGrounded() && player.velocity.y < 0)
         {
-            player.velocity = new Vector2(player.velocity.x, player.velocity.y - .03f);
+            player.velocity = new Vector2(player.velocity.x, player.velocity.y - 0.3f);
         }
 
 
