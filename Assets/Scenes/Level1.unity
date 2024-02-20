@@ -2987,7 +2987,7 @@ GameObject:
   - component: {fileID: 1156369648}
   - component: {fileID: 1156369647}
   - component: {fileID: 1156369646}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: IHurt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3617,10 +3617,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1295151910}
-  movementSpeed: 10
-  airMobilityMultiplier: 0.8
-  jumpHeight: 10
-  doubleJump: 0
+  movementSpeed: 8
+  airMobilityMultiplier: 0.9
+  enableSprinting: 1
+  jumpHeight: 15
+  extraJumps: 0
   coyoteTime: 0.2
   jumpBuffer: 0.3
   dodgeTime: 0.5
@@ -3682,10 +3683,10 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 15
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 3
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -3779,7 +3780,7 @@ Transform:
   m_GameObject: {fileID: 1295151906}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -12.33, y: -2.46, z: 0}
+  m_LocalPosition: {x: -12.499, y: -2.46, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

@@ -8,10 +8,11 @@ public class Movement : MonoBehaviour
     [SerializeField] private Rigidbody2D player;
     [SerializeField] private float movementSpeed = 5f;
     [SerializeField] private float airMobilityMultiplier = .8f; //changes the amount of Horizontal speed the player has while in the airs
+    [SerializeField] private bool enableSprinting = false;
 
     //Jump customization values
     [SerializeField] private float jumpHeight = 5f;
-    [SerializeField] private bool doubleJump = false; //makes coyote time and jump buffering more or less useless
+    [SerializeField] private int extraJumps = 0; //makes coyote time and jump buffering more or less useless depending on jump count
     [SerializeField] private float coyoteTime = 0.2f; //time you can jump after being off the ground
     [SerializeField] private float jumpBuffer = 0.3f; //time that your jumps can be queued up
 
@@ -27,10 +28,10 @@ public class Movement : MonoBehaviour
     [SerializeField] private LayerMask groundLayer;
     [SerializeField] private Animator anim;
     [SerializeField] private SpriteRenderer playerSprite;
-    
+
 
     //Private values for movement controller. Don't touch
-    private bool jumped = true;
+    private int jumps = 0;
     private bool isFacingRight = true;
     private float horizontalSpeed;
     private float coyoteTimeCounter;
@@ -39,6 +40,8 @@ public class Movement : MonoBehaviour
     private float dodgeCD = 0;
     private float stamina;
     private bool regenerateStamina = true;
+    private float sprintSpeed;
+    private bool sprinting;
 
 
     private void Awake()
@@ -70,9 +73,9 @@ public class Movement : MonoBehaviour
             jumpBufferCounter -= Time.deltaTime;
         }
 
-        if (jumpBufferCounter > 0f && coyoteTimeCounter > 0 || !jumped && Input.GetButtonDown("Jump")) //makes the player jump
+        if (jumpBufferCounter > 0f && coyoteTimeCounter > 0 || jumps < extraJumps && Input.GetButtonDown("Jump")) //makes the player jump
         {
-            jumped = true;
+            jumps += 1;
             player.velocity = new Vector2(player.velocity.x, jumpHeight);
 
             jumpBufferCounter = 0f;
@@ -85,9 +88,9 @@ public class Movement : MonoBehaviour
             coyoteTimeCounter = 0f;
         }
 
-        if (IsGrounded() && doubleJump) //allows the player to double jump if enable
+        if (IsGrounded()) //allows the player to double jump if enable
         {
-            jumped = false;
+            jumps = 0;
         }
 
         if (!IsGrounded() && player.velocity.y < 0)
@@ -126,16 +129,36 @@ public class Movement : MonoBehaviour
         Flip(); 
     }
 
-    //handles the players movement at a fixed time so it can't move faster or slower depending on the FPS
+    //handles the players movement at a fixed time (20 times a second) so it can't move faster or slower depending on the FPS
     void FixedUpdate()
     {
         if (IsGrounded() && !isDodging)
         {
-            player.velocity = new Vector2(horizontalSpeed * movementSpeed, player.velocity.y);
+            player.velocity = new Vector2(horizontalSpeed * movementSpeed * sprintSpeed, player.velocity.y);
         }
         else if (!isDodging)
         {
-            player.velocity = new Vector2(horizontalSpeed * movementSpeed * airMobilityMultiplier, player.velocity.y);
+            player.velocity = new Vector2(horizontalSpeed * movementSpeed * airMobilityMultiplier * sprintSpeed, player.velocity.y);
+        }
+
+        if (enableSprinting && Input.GetKey(KeyCode.LeftShift) && stamina > 5)
+        {
+            sprinting = true;
+        }
+
+        if (sprinting && !isDodging && stamina > 0 && Mathf.Abs(player.velocity.x) > 0f)
+        {
+            sprintSpeed = 1.5f;
+            stamina -= .1f;
+            regenerateStamina = false;
+            playerSprite.color = Color.red;
+        }
+        else if (!isDodging)
+        {
+            regenerateStamina = true;
+            sprintSpeed = 1f;
+            playerSprite.color = Color.white;
+            sprinting = false;
         }
     }
 
