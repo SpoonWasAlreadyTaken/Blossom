@@ -95,7 +95,11 @@ public class Movement : MonoBehaviour
 
         if (!IsGrounded() && player.velocity.y < 0)
         {
+<<<<<<< HEAD
+            player.velocity = new Vector2(player.velocity.x, player.velocity.y - 0.3f);
+=======
             player.velocity = new Vector2(player.velocity.x, player.velocity.y - .04f);
+>>>>>>> main
         }
 
         //Dodging
