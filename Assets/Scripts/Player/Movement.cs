@@ -4,33 +4,56 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
-    //Movement Imputs, can be changed manually
+    //Movement Inputs, can be changed manually
     [SerializeField] private Rigidbody2D player;
     [SerializeField] private float movementSpeed = 5f;
+    [SerializeField] private float airMobilityMultiplier = .8f; //changes the amount of Horizontal speed the player has while in the airs
+    [SerializeField] private bool enableSprinting = false;
 
     //Jump customization values
     [SerializeField] private float jumpHeight = 5f;
-    [SerializeField] private bool doubleJump = false; //makes coyote time and jump buffering more or less useless
+    [SerializeField] private int extraJumps = 0; //makes coyote time and jump buffering more or less useless depending on jump count
     [SerializeField] private float coyoteTime = 0.2f; //time you can jump after being off the ground
     [SerializeField] private float jumpBuffer = 0.3f; //time that your jumps can be queued up
 
+    //Dodging customization values
+    [SerializeField] private float dodgeTime = .5f;
+    [SerializeField] private float dodgeDistance = 5f;
+    [SerializeField] private float dodgeCooldown = .8f;
+    [SerializeField] private float staminaMax = 20;
+    [SerializeField] private float staminaRegeneration = 1f;
 
+    //Unity imputs
     [SerializeField] private Transform groundCheck;
     [SerializeField] private LayerMask groundLayer;
     [SerializeField] private Animator anim;
-    
+    [SerializeField] private SpriteRenderer playerSprite;
+
 
     //Private values for movement controller. Don't touch
-    private bool jumped = true;
+    private int jumps = 0;
     private bool isFacingRight = true;
     private float horizontalSpeed;
     private float coyoteTimeCounter;
     private float jumpBufferCounter;
+    public bool isDodging = false;
+    private float dodgeCD = 0;
+    private float stamina;
+    private bool regenerateStamina = true;
+    private float sprintSpeed;
+    private bool sprinting;
 
+
+    private void Awake()
+    {
+        stamina = staminaMax; 
+    }
 
     private void Update()
     {
         horizontalSpeed = Input.GetAxisRaw("Horizontal");
+
+        //jumping functions
 
         if (IsGrounded())
         {
@@ -50,9 +73,9 @@ public class Movement : MonoBehaviour
             jumpBufferCounter -= Time.deltaTime;
         }
 
-        if (jumpBufferCounter > 0f && coyoteTimeCounter > 0 || !jumped && Input.GetButtonDown("Jump")) //makes the player jump
+        if (jumpBufferCounter > 0f && coyoteTimeCounter > 0 || jumps < extraJumps && Input.GetButtonDown("Jump")) //makes the player jump
         {
-            jumped = true;
+            jumps += 1;
             player.velocity = new Vector2(player.velocity.x, jumpHeight);
 
             jumpBufferCounter = 0f;
@@ -65,36 +88,91 @@ public class Movement : MonoBehaviour
             coyoteTimeCounter = 0f;
         }
 
-        if (IsGrounded() && doubleJump) //allows the player to double jump if enable
+        if (IsGrounded()) //allows the player to double jump if enable
         {
-            jumped = false;
+            jumps = 0;
         }
 
         if (!IsGrounded() && player.velocity.y < 0)
         {
+<<<<<<< HEAD
             player.velocity = new Vector2(player.velocity.x, player.velocity.y - 0.3f);
+=======
+            player.velocity = new Vector2(player.velocity.x, player.velocity.y - .04f);
+>>>>>>> main
         }
 
+        //Dodging
 
+        if (IsGrounded() && Mathf.Abs(player.velocity.x) > 0 && Input.GetKeyDown("space") && dodgeCD <= 0 && !isDodging && stamina > 0)
+        {
+            StartCoroutine(HorizontalDodge());
+
+            stamina -= 5;
+        }
+        else if (IsGrounded() && Input.GetKeyDown("space") && dodgeCD <= 0 && !isDodging && stamina > 0)
+        {
+            StartCoroutine(NeutralDodge());
+
+            stamina -= 3;
+        }
+
+        if (dodgeCD > 0)
+        {
+            dodgeCD -= Time.deltaTime; 
+        }
+
+        if (stamina <= staminaMax && regenerateStamina)
+        {
+            stamina += Time.deltaTime * staminaRegeneration;
+        }
+
+        //call functions
         UpdateAnimation();
 
         Flip(); 
     }
 
-    //handles the players movement at a fixed time so it can't move faster or slower depending on the FPS
+    //handles the players movement at a fixed time (20 times a second) so it can't move faster or slower depending on the FPS
     void FixedUpdate()
     {
-        player.velocity = new Vector2(horizontalSpeed * movementSpeed, player.velocity.y);
+        if (IsGrounded() && !isDodging)
+        {
+            player.velocity = new Vector2(horizontalSpeed * movementSpeed * sprintSpeed, player.velocity.y);
+        }
+        else if (!isDodging)
+        {
+            player.velocity = new Vector2(horizontalSpeed * movementSpeed * airMobilityMultiplier * sprintSpeed, player.velocity.y);
+        }
+
+        if (enableSprinting && Input.GetKey(KeyCode.LeftShift) && stamina > 5)
+        {
+            sprinting = true;
+        }
+
+        if (sprinting && !isDodging && stamina > 0 && Mathf.Abs(player.velocity.x) > 0f)
+        {
+            sprintSpeed = 1.5f;
+            stamina -= .1f;
+            regenerateStamina = false;
+            playerSprite.color = Color.red;
+        }
+        else if (!isDodging)
+        {
+            regenerateStamina = true;
+            sprintSpeed = 1f;
+            playerSprite.color = Color.white;
+            sprinting = false;
+        }
     }
 
     //determined if the player is on the ground
     private bool IsGrounded()
     {
-        return Physics2D.OverlapCircle(groundCheck.position, 0.1f, groundLayer);
+        return Physics2D.OverlapCircle(groundCheck.position, 0.15f, groundLayer);
     }
 
-
-    //flips the player in the direction its moveing
+    //flips the player in the direction its moving
     private void Flip()
     {
         if (isFacingRight && horizontalSpeed < 0f || !isFacingRight && horizontalSpeed > 0f)
@@ -104,6 +182,43 @@ public class Movement : MonoBehaviour
             localScale.x *= -1f;
             transform.localScale = localScale;
         }
+    }
+
+    private IEnumerator NeutralDodge()
+    {
+        isDodging = true;
+        regenerateStamina = false;
+        playerSprite.color = Color.blue;
+        if (isFacingRight)
+        {
+            player.velocity = new Vector2(-dodgeDistance * .5f, player.velocity.y) ;
+        }
+        else
+        {
+            player.velocity = new Vector2(dodgeDistance * .5f, player.velocity.y);
+        }
+
+        yield return new WaitForSeconds(dodgeTime * .7f);
+
+        dodgeCD = dodgeCooldown * .5f;
+        isDodging = false;
+        playerSprite.color = Color.white;
+        regenerateStamina = true;
+    }
+
+    private IEnumerator HorizontalDodge()
+    {
+        isDodging = true;
+        regenerateStamina = false;
+        playerSprite.color = Color.green;
+        player.velocity = new Vector2(player.velocity.x * dodgeDistance * .5f, player.velocity.y);
+
+        yield return new WaitForSeconds(dodgeTime);
+
+        dodgeCD = dodgeCooldown;
+        isDodging = false;
+        playerSprite.color = Color.white;
+        regenerateStamina = true;
     }
 
 
@@ -120,12 +235,12 @@ public class Movement : MonoBehaviour
             anim.SetBool("Walking", false);
         }
 
-        if (player.velocity.y > 0.2)
+        if (player.velocity.y > 0.2 && !IsGrounded())
         {
             anim.SetBool("Jumping", true);
             anim.SetBool("Falling", false);
         }
-        else if (player.velocity.y < -0.2)
+        else if (player.velocity.y < -0.2 && !IsGrounded())
         {
             anim.SetBool("Falling", true);
             anim.SetBool("Jumping", false);
@@ -140,7 +255,7 @@ public class Movement : MonoBehaviour
     //Object visibility
     private void OnDrawGizmos()
     {
-        Gizmos.DrawWireSphere(groundCheck.position, .2f);
+        Gizmos.DrawWireSphere(groundCheck.position, .15f);
     }
 }
 
