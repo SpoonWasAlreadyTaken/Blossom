@@ -26,7 +26,8 @@ public class Movement : MonoBehaviour
     //Unity imputs
     [SerializeField] private Transform groundCheck;
     [SerializeField] private LayerMask groundLayer;
-    [SerializeField] private Animator anim;
+    [SerializeField] private Animator animPlayer;
+    [SerializeField] private Animator animCloud;
     [SerializeField] private SpriteRenderer playerSprite;
 
 
@@ -224,27 +225,33 @@ public class Movement : MonoBehaviour
     {
         if (Mathf.Abs(player.velocity.x) > 0f)
         {
-            anim.SetBool("Walking", true);
+            animPlayer.SetBool("Walking", true);
         }
         else
         {
-            anim.SetBool("Walking", false);
+            animPlayer.SetBool("Walking", false);
         }
 
         if (player.velocity.y > 0.2 && !IsGrounded())
         {
-            anim.SetBool("Jumping", true);
-            anim.SetBool("Falling", false);
+            animPlayer.SetBool("Jumping", true);
+            animPlayer.SetBool("Falling", false);
+            animCloud.SetBool("Jumping", true);
+            animCloud.SetBool("Falling", false);
         }
         else if (player.velocity.y < -0.2 && !IsGrounded())
         {
-            anim.SetBool("Falling", true);
-            anim.SetBool("Jumping", false);
+            animPlayer.SetBool("Falling", true);
+            animPlayer.SetBool("Jumping", false);
+            animCloud.SetBool("Falling", true);
+            animCloud.SetBool("Jumping", false);
         }
         else
         {
-            anim.SetBool("Jumping", false);
-            anim.SetBool("Falling", false);
+            animPlayer.SetBool("Jumping", false);
+            animPlayer.SetBool("Falling", false);
+            animCloud.SetBool("Jumping", false);
+            animCloud.SetBool("Falling", false);
         }
     }
 
