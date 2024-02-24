@@ -223,7 +223,7 @@ public class Movement : MonoBehaviour
     private void UpdateAnimation()
 
     {
-        if (Mathf.Abs(player.velocity.x) > 0f)
+        if (Mathf.Abs(player.velocity.x) > 0.1f)
         {
             animPlayer.SetBool("Walking", true);
         }
