@@ -43,6 +43,8 @@ public class Movement : MonoBehaviour
     private bool regenerateStamina = true;
     private float sprintSpeed;
     private bool sprinting;
+    private bool normalDodge = false;
+    private bool neutralDodge = false;
 
 
     private void Awake()
@@ -184,6 +186,7 @@ public class Movement : MonoBehaviour
     private IEnumerator NeutralDodge()
     {
         isDodging = true;
+        neutralDodge = true;
         regenerateStamina = false;
         playerSprite.color = Color.blue;
         if (isFacingRight)
@@ -199,6 +202,7 @@ public class Movement : MonoBehaviour
 
         dodgeCD = dodgeCooldown * .5f;
         isDodging = false;
+        neutralDodge = false;
         playerSprite.color = Color.white;
         regenerateStamina = true;
     }
@@ -206,6 +210,7 @@ public class Movement : MonoBehaviour
     private IEnumerator HorizontalDodge()
     {
         isDodging = true;
+        normalDodge = true;
         regenerateStamina = false;
         playerSprite.color = Color.green;
         player.velocity = new Vector2(player.velocity.x * dodgeDistance * .5f, player.velocity.y);
@@ -214,6 +219,7 @@ public class Movement : MonoBehaviour
 
         dodgeCD = dodgeCooldown;
         isDodging = false;
+        normalDodge = false;
         playerSprite.color = Color.white;
         regenerateStamina = true;
     }
@@ -252,6 +258,24 @@ public class Movement : MonoBehaviour
             animPlayer.SetBool("Falling", false);
             animCloud.SetBool("Jumping", false);
             animCloud.SetBool("Falling", false);
+        }
+
+        if (normalDodge)
+        {
+            animPlayer.SetBool("Dodging", true);
+        }
+        else
+        {
+            animPlayer.SetBool("Dodging", false);
+        }
+
+        if (neutralDodge)
+        {
+            animPlayer.SetBool("nDodging", true);
+        }
+        else
+        {
+            animPlayer.SetBool("nDodging", false);
         }
     }
 

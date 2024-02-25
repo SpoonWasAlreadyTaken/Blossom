@@ -20,6 +20,7 @@ public class PlayerHealth : MonoBehaviour
     //private values
     private float iFrames;
     private bool isFlashing = false;
+    private bool isHurting = false;
 
 
     void Awake()
@@ -51,6 +52,10 @@ public class PlayerHealth : MonoBehaviour
         {
             hitPoints -= damage;
             iFrames = iFrameLength;
+            if (!isHurting)
+            {
+                StartCoroutine(DamageFlashing());
+            }
         }
 
         if (hitPoints <= 0)
@@ -64,11 +69,23 @@ public class PlayerHealth : MonoBehaviour
     {
         isFlashing = true;
 
-        playerSprite.color = new Color(playerSprite.color.r, playerSprite.color.g, playerSprite.color.b, .8f);
+        playerSprite.color = new Color(playerSprite.color.r, playerSprite.color.g, playerSprite.color.b, .5f);
         yield return new WaitForSeconds(.2f);
         playerSprite.color = new Color(playerSprite.color.r, playerSprite.color.g, playerSprite.color.b, 1f);
 
         isFlashing = false;
+    }
+
+    private IEnumerator DamageFlashing()
+    {
+        isHurting = true;
+        for (int i = 0; i < 2; i++)
+        {
+            playerSprite.color = Color.red;
+            yield return new WaitForSeconds(.4f);
+            playerSprite.color = new Color(0, playerSprite.color.g, playerSprite.color.b, playerSprite.color.a);
+        }
+        isHurting = false;
     }
 }
 
