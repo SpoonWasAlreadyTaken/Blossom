@@ -25,6 +25,8 @@ public class Movement : MonoBehaviour
 
     //Unity imputs
     [SerializeField] private Transform groundCheck;
+    [SerializeField] private Transform wallCheck;
+    [SerializeField] private float wallCheckSize = 0.1f;
     [SerializeField] private LayerMask groundLayer;
     [SerializeField] private Animator animPlayer;
     [SerializeField] private Animator animCloud;
@@ -163,12 +165,26 @@ public class Movement : MonoBehaviour
             playerSprite.color = Color.white;
             sprinting = false;
         }
+
+        if (IsWalled() && isFacingRight)
+        {
+            player.velocity = new Vector2(-.01f, player.velocity.y);
+        }
+        else if (IsWalled())
+        {
+            player.velocity = new Vector2(.01f, player.velocity.y);
+        }
     }
 
     //determined if the player is on the ground
     private bool IsGrounded()
     {
         return Physics2D.OverlapCircle(groundCheck.position, 0.15f, groundLayer);
+    }
+
+    private bool IsWalled()
+    {
+        return Physics2D.OverlapCircle(wallCheck.position, wallCheckSize, groundLayer);
     }
 
     //flips the player in the direction its moving
@@ -283,6 +299,7 @@ public class Movement : MonoBehaviour
     private void OnDrawGizmos()
     {
         Gizmos.DrawWireSphere(groundCheck.position, .15f);
+        Gizmos.DrawWireSphere(wallCheck.position, wallCheckSize);
     }
 }
 
