@@ -174,6 +174,30 @@ public class Movement : MonoBehaviour
         {
             player.velocity = new Vector2(.01f, player.velocity.y);
         }
+
+        if (neutralDodge)
+        {
+            if (isFacingRight)
+            {
+                player.velocity = new Vector2(-dodgeDistance, player.velocity.y);
+            }
+            else
+            {
+                player.velocity = new Vector2(dodgeDistance, player.velocity.y);
+            }
+        }
+
+        if (normalDodge)
+        {
+            if (isFacingRight)
+            {
+                player.velocity = new Vector2(player.velocity.x * .825f + dodgeDistance, player.velocity.y);
+            }
+            else
+            {
+                player.velocity = new Vector2(player.velocity.x * .825f - dodgeDistance, player.velocity.y);
+            }
+        }
     }
 
     //determined if the player is on the ground
@@ -205,14 +229,7 @@ public class Movement : MonoBehaviour
         neutralDodge = true;
         regenerateStamina = false;
         playerSprite.color = Color.blue;
-        if (isFacingRight)
-        {
-            player.velocity = new Vector2(-dodgeDistance * .5f, player.velocity.y) ;
-        }
-        else
-        {
-            player.velocity = new Vector2(dodgeDistance * .5f, player.velocity.y);
-        }
+
 
         yield return new WaitForSeconds(dodgeTime * .7f);
 
@@ -229,7 +246,6 @@ public class Movement : MonoBehaviour
         normalDodge = true;
         regenerateStamina = false;
         playerSprite.color = Color.green;
-        player.velocity = new Vector2(player.velocity.x * dodgeDistance * .5f, player.velocity.y);
 
         yield return new WaitForSeconds(dodgeTime);
 
