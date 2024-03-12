@@ -6,23 +6,21 @@ using UnityEngine.SceneManagement;
 
 public class Door : MonoBehaviour
 {
-    private bool isInsideDoor = false;
+    [SerializeField] private float doorSize = 3f;
 
-    private void OnTriggerStay2D(Collider2D collision)
-    {
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            isInsideDoor = true;
-        }
-    }
+    [SerializeField] GameObject playerCharacter;
 
 
     private void FixedUpdate()
     {
-        if(Input.GetKeyDown(KeyCode.E) && isInsideDoor)
+
+        float distance = Vector2.Distance(transform.position, playerCharacter.transform.position);
+
+            if (Input.GetKeyDown(KeyCode.E) && distance < doorSize)
         {
             SceneManager.LoadScene("Door");
             Debug.Log("Door");
         }
     }
+
 }
