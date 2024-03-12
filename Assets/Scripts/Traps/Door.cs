@@ -22,6 +22,7 @@ public class Door : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.E) && isInsideDoor)
         {
             SceneManager.LoadScene("Door");
+            Debug.Log("Door");
         }
     }
 }

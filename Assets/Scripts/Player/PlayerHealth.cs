@@ -61,7 +61,18 @@ public class PlayerHealth : MonoBehaviour
         if (hitPoints <= 0)
         {
             //temporary in place of what actually happens when the player dies
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+            SceneManager.LoadScene("MainMenu");
+        }
+    }
+
+    public void TakeDamageIgnoreIFrames(int damage)
+    {
+        hitPoints -= damage;
+
+        if (hitPoints <= 0)
+        {
+            //temporary in place of what actually happens when the player dies
+            SceneManager.LoadScene("MainMenu");
         }
     }
 
