@@ -28,7 +28,6 @@ public class Void : MonoBehaviour
     private void Start()
     {
         drawGizmoz = true;
-        Debug.Log(voidBubbles.Length);
         bubbleSizes = new float[voidBubbles.Length];
 
         for (int i = 0; i < voidBubbles.Length; i++)

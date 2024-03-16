@@ -4,17 +4,25 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
+
+    [Header("Movement")]
+
     //Movement Inputs, can be changed manually
     [SerializeField] private Rigidbody2D player;
     [SerializeField] private float movementSpeed = 5f;
     [SerializeField] private float airMobilityMultiplier = .8f; //changes the amount of Horizontal speed the player has while in the airs
     [SerializeField] private bool enableSprinting = false;
 
+
+    [Header("Jumping")]
+
     //Jump customization values
     [SerializeField] private float jumpHeight = 5f;
     [SerializeField] private int extraJumps = 0; //makes coyote time and jump buffering more or less useless depending on jump count
     [SerializeField] private float coyoteTime = 0.2f; //time you can jump after being off the ground
     [SerializeField] private float jumpBuffer = 0.3f; //time that your jumps can be queued up
+
+    [Header("Dodging")]
 
     //Dodging customization values
     [SerializeField] private float dodgeTime = .5f;
@@ -23,7 +31,9 @@ public class Movement : MonoBehaviour
     [SerializeField] private float staminaMax = 20;
     [SerializeField] private float staminaRegeneration = 1f;
 
-    //Unity imputs
+    [Header("Unity Inputs")]
+
+    //Unity inputs
     [SerializeField] private Transform groundCheck;
     [SerializeField] private Transform wallCheck;
     [SerializeField] private float wallCheckSize = 0.1f;
@@ -41,7 +51,7 @@ public class Movement : MonoBehaviour
     private float jumpBufferCounter;
     public bool isDodging = false;
     private float dodgeCD = 0;
-    private float stamina;
+    public float stamina;
     private bool regenerateStamina = true;
     private float sprintSpeed;
     private bool sprinting;
@@ -199,6 +209,7 @@ public class Movement : MonoBehaviour
             }
         }
     }
+
 
     //determined if the player is on the ground
     private bool IsGrounded()
