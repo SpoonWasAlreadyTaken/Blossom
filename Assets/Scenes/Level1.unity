@@ -2373,6 +2373,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hitPoints: 0
   maximumHitPoints: 500
+  enemySprite: {fileID: 774531863}
   isDummy: 1
   hitPointDisplay: {fileID: 1588626012}
 --- !u!212 &774531863
