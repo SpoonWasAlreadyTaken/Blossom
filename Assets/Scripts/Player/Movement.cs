@@ -28,7 +28,7 @@ public class Movement : MonoBehaviour
     [SerializeField] private float dodgeTime = .5f;
     [SerializeField] private float dodgeDistance = 5f;
     [SerializeField] private float dodgeCooldown = .8f;
-    [SerializeField] private float staminaMax = 20;
+    public float staminaMax = 20;
     [SerializeField] private float staminaRegeneration = 1f;
 
     [Header("Unity Inputs")]
@@ -38,6 +38,7 @@ public class Movement : MonoBehaviour
     [SerializeField] private Transform wallCheck;
     [SerializeField] private float wallCheckSize = 0.1f;
     [SerializeField] private LayerMask groundLayer;
+    [SerializeField] private LayerMask ground;
     [SerializeField] private Animator animPlayer;
     [SerializeField] private Animator animCloud;
     [SerializeField] private SpriteRenderer playerSprite;
@@ -219,7 +220,7 @@ public class Movement : MonoBehaviour
 
     private bool IsWalled()
     {
-        return Physics2D.OverlapCircle(wallCheck.position, wallCheckSize, groundLayer);
+        return Physics2D.OverlapCircle(wallCheck.position, wallCheckSize, ground);
     }
 
     //flips the player in the direction its moving

@@ -6,12 +6,16 @@ using UnityEngine.UI;
 public class HealthBar : MonoBehaviour
 {
     public PlayerHealth player;
-    public Image image;
-    [SerializeField] private Slider slider;
+    public Movement movement;
+    [SerializeField] private Slider sliderHealth;
+    [SerializeField] private Slider sliderStamina;
 
     void FixedUpdate()
     {
-        float fillValue = player.hitPoints / player.hitPointMaximum;
-        slider.value = fillValue;
+        float fillValueHealth = player.hitPoints / player.hitPointMaximum;
+        sliderHealth.value = fillValueHealth;
+
+        float fillValueStamina = movement.stamina / movement.staminaMax;
+        sliderStamina.value = fillValueStamina;
     }
 }
