@@ -1281,6 +1281,7 @@ GameObject:
   - component: {fileID: 546467196}
   - component: {fileID: 546467195}
   - component: {fileID: 546467197}
+  - component: {fileID: 546467198}
   m_Layer: 0
   m_Name: Grandpa
   m_TagString: Untagged
@@ -1386,6 +1387,27 @@ MonoBehaviour:
   dialogueBox: {fileID: 1249414974}
   npcDialogueRange: 3
   playerCharacter: {fileID: 1295151906}
+--- !u!95 &546467198
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 546467194}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: fdf3df1df725d7c4d829429304788c77, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &547080722
 GameObject:
   m_ObjectHideFlags: 0
