@@ -48,6 +48,7 @@ GameObject:
   - component: {fileID: 1449168943283134797}
   - component: {fileID: 5829812436954659017}
   - component: {fileID: 7234556136975739569}
+  - component: {fileID: 6549949167805393425}
   m_Layer: 0
   m_Name: Player(Blossom)
   m_TagString: Player
@@ -71,6 +72,7 @@ Transform:
   - {fileID: 8451035701373528587}
   - {fileID: 6924410137003462511}
   - {fileID: 3724820556180423719}
+  - {fileID: 3772456109616510752}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &3722127592493129702
@@ -182,7 +184,7 @@ CircleCollider2D:
   m_GameObject: {fileID: 1313805085125830367}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 6200000, guid: 2c6f0045a72032543a9bf52d69d09a23, type: 2}
+  m_Material: {fileID: 6200000, guid: cc1db64d21b70244fb3ff174f98bfc95, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -282,20 +284,24 @@ MonoBehaviour:
   coyoteTime: 0.2
   jumpBuffer: 0.3
   dodgeTime: 0.5
-  dodgeDistance: 2.5
+  dodgeDistance: 3
   dodgeCooldown: 0.3
   staminaMax: 20
   staminaRegeneration: 5
   groundCheck: {fileID: 8451035701373528587}
   wallCheck: {fileID: 3724820556180423719}
-  wallCheckSize: 0.4
+  wallCheckSize: 0.35
   groundLayer:
+    serializedVersion: 2
+    m_Bits: 3072
+  ground:
     serializedVersion: 2
     m_Bits: 1024
   animPlayer: {fileID: 955041520055012006}
   animCloud: {fileID: 1010656849192692308}
   playerSprite: {fileID: 3722127592493129702}
   isDodging: 0
+  stamina: 0
 --- !u!114 &7234556136975739569
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -311,6 +317,58 @@ MonoBehaviour:
   headCollider: {fileID: 1411822553071140879}
   bodyCollider: {fileID: 22654222576076724}
   disableCollider: 1
+--- !u!114 &6549949167805393425
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1313805085125830367}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04a0300bad007434e9462441755f7452, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackSpeed: 0.3
+  attackCooldown: 0.6
+  attackDamage: 1
+  attackRange: 0.5
+  animPlayer: {fileID: 955041520055012006}
+  attackPoint: {fileID: 3772456109616510752}
+  damagables:
+    serializedVersion: 2
+    m_Bits: 2048
+--- !u!1 &1372586807527920018
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3772456109616510752}
+  m_Layer: 0
+  m_Name: AttackPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3772456109616510752
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1372586807527920018}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.85, y: -0.41, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8082932989220392866}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3075366225841509696
 GameObject:
   m_ObjectHideFlags: 0
@@ -442,7 +500,7 @@ Transform:
   m_GameObject: {fileID: 6546183584843383890}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.22, y: -0.26, z: 0}
+  m_LocalPosition: {x: 0.16, y: -0.657, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
