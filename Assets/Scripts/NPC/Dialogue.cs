@@ -10,10 +10,15 @@ public class Dialogue : MonoBehaviour
     [SerializeField] private string[] lines;
     [SerializeField] private string[] speaker;
     [SerializeField] private float textSpeed = .1f;
-    [SerializeField] GameObject dialogueBox;
+    [SerializeField] private GameObject dialogueBox;
     //Background values
     [SerializeField] private float npcDialogueRange = 3f;
-    [SerializeField] GameObject playerCharacter;
+    [SerializeField] private GameObject playerCharacter;
+
+    [Header("EnemySpawn")]
+
+    [SerializeField] private bool SpawnEnemyOnDialogueEnd = false;
+    [SerializeField] private GameObject enemyToSpawn;
 
 
     //Script values don't touch.
@@ -23,6 +28,7 @@ public class Dialogue : MonoBehaviour
     
 
     private int index;
+
 
 
     void Update()
@@ -83,6 +89,12 @@ public class Dialogue : MonoBehaviour
         {
             dialogueBox.SetActive(false);
             endOfDialogue = true;
+
+            if (SpawnEnemyOnDialogueEnd && enemyToSpawn != null)
+            {
+                Instantiate(enemyToSpawn, transform.position, transform.rotation);
+                Object.Destroy(gameObject);
+            }
         }
     }
 
