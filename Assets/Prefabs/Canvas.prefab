@@ -751,8 +751,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfff88d432311f544a7ad11205a7ad40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
-  movement: {fileID: 0}
+  player: {fileID: 1449168943283134797, guid: 33dc0f9541a69d94ba4eb3026db83f09, type: 3}
+  movement: {fileID: 5829812436954659017, guid: 33dc0f9541a69d94ba4eb3026db83f09, type: 3}
   sliderHealth: {fileID: 6351513143680261481}
   sliderStamina: {fileID: 4239137964609857701}
 --- !u!1 &1816390458013156082

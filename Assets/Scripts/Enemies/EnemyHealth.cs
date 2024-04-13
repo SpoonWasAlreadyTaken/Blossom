@@ -2,21 +2,31 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
+
 
 public class EnemyHealth : MonoBehaviour
 {
     [Header("Health Settings")]
 
-    [SerializeField] private int hitPoints;
-    [SerializeField] private int maximumHitPoints = 5;
+    [SerializeField] private float hitPoints;
+    [SerializeField] private float maximumHitPoints = 5;
 
     [SerializeField] private SpriteRenderer enemySprite;
+
+    [Header("On Death")]
+
+    [SerializeField] private bool spawnOnDeath = false;
+    [SerializeField] private GameObject onDeathSpawn;
+
+    [Header("Health Bar")]
+
+    [SerializeField] private Slider healthBar;
+
 
     [Header("Dummy Settings")]
 
     [SerializeField] private bool isDummy = false;
-    [SerializeField] private TextMeshProUGUI hitPointDisplay;
-
 
 
     private void Awake()
@@ -30,13 +40,23 @@ public class EnemyHealth : MonoBehaviour
 
         if (hitPoints <= 0 && !isDummy)
         {
-            Destroy(this.gameObject);
+            if (spawnOnDeath) 
+            {
+                Instantiate(onDeathSpawn, transform.position, transform.rotation);
+            }
+            else
+            {
+                Destroy(this.gameObject);
+            }
         }
 
-        if (isDummy && hitPointDisplay != null)
+        if (healthBar != null)
         {
-            hitPointDisplay.text = "Dummy: " + hitPoints + "/" + maximumHitPoints;
+            float fillValue = hitPoints / maximumHitPoints;
+
+            healthBar.value = fillValue;
         }
+
 
         StartCoroutine(DamageFlashing());
     }
