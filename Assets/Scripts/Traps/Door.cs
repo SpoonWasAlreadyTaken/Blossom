@@ -11,7 +11,7 @@ public class Door : MonoBehaviour
     [SerializeField] GameObject playerCharacter;
 
 
-    private void FixedUpdate()
+    private void Update()
     {
 
         float distance = Vector2.Distance(transform.position, playerCharacter.transform.position);
