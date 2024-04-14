@@ -723,11 +723,6 @@ CapsuleCollider2D:
   m_Offset: {x: -0.008143508, y: -0.48372564}
   m_Size: {x: 20.797651, y: 5.0211024}
   m_Direction: 1
---- !u!50 &404435857 stripped
-Rigidbody2D:
-  m_CorrespondingSourceObject: {fileID: 1761037506126760438, guid: 5da3efe78b6f74d4d96274ad921ea27c, type: 3}
-  m_PrefabInstance: {fileID: 6890382410732084850}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &411262487
 GameObject:
   m_ObjectHideFlags: 0
@@ -5298,49 +5293,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 363387270889345019, guid: 5da3efe78b6f74d4d96274ad921ea27c, type: 3}
-      propertyPath: m_Color.b
-      value: 0.012237449
-      objectReference: {fileID: 0}
-    - target: {fileID: 363387270889345019, guid: 5da3efe78b6f74d4d96274ad921ea27c, type: 3}
-      propertyPath: m_Color.g
-      value: 0.012237449
-      objectReference: {fileID: 0}
-    - target: {fileID: 363387270889345019, guid: 5da3efe78b6f74d4d96274ad921ea27c, type: 3}
-      propertyPath: m_Color.r
-      value: 0.5188679
-      objectReference: {fileID: 0}
     - target: {fileID: 1616145186379268680, guid: 5da3efe78b6f74d4d96274ad921ea27c, type: 3}
       propertyPath: m_Name
       value: GrandpaEnemy
-      objectReference: {fileID: 0}
-    - target: {fileID: 1616145186379268680, guid: 5da3efe78b6f74d4d96274ad921ea27c, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3587217509315616314, guid: 5da3efe78b6f74d4d96274ad921ea27c, type: 3}
-      propertyPath: DEBUG
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 3587217509315616314, guid: 5da3efe78b6f74d4d96274ad921ea27c, type: 3}
-      propertyPath: speed
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3587217509315616314, guid: 5da3efe78b6f74d4d96274ad921ea27c, type: 3}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 943725421}
-    - target: {fileID: 3587217509315616314, guid: 5da3efe78b6f74d4d96274ad921ea27c, type: 3}
-      propertyPath: grandpa
-      value: 
-      objectReference: {fileID: 404435857}
-    - target: {fileID: 3587217509315616314, guid: 5da3efe78b6f74d4d96274ad921ea27c, type: 3}
-      propertyPath: tooClose
-      value: 2.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3587217509315616314, guid: 5da3efe78b6f74d4d96274ad921ea27c, type: 3}
-      propertyPath: exhaustionTimer
-      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4098998202852089122, guid: 5da3efe78b6f74d4d96274ad921ea27c, type: 3}
       propertyPath: m_AnchorMax.x
