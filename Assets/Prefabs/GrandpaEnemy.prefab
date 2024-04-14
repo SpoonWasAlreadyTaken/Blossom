@@ -190,8 +190,11 @@ MonoBehaviour:
   attackSpeed: 3
   attackRange: 6
   attackTime: 0.37
-  speed: 0
-  player: {fileID: 1313805085125830367, guid: 33dc0f9541a69d94ba4eb3026db83f09, type: 3}
+  speed: 5
+  grandpa: {fileID: 1761037506126760438}
+  tooClose: 2.5
+  exhaustionMax: 5
+  exhaustionTimer: 5
   attackOrigin: {fileID: 4415772939294966731}
   animGrandpa: {fileID: 1091043527343405683}
 --- !u!114 &6279696601828006178
@@ -367,6 +370,18 @@ PrefabInstance:
     - target: {fileID: 8982100362685575917, guid: 8af3182aecbc50d49bd7fe8e88333abe, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9132112571699168085, guid: 8af3182aecbc50d49bd7fe8e88333abe, type: 3}
+      propertyPath: m_Color.b
+      value: 0.012237449
+      objectReference: {fileID: 0}
+    - target: {fileID: 9132112571699168085, guid: 8af3182aecbc50d49bd7fe8e88333abe, type: 3}
+      propertyPath: m_Color.g
+      value: 0.012237449
+      objectReference: {fileID: 0}
+    - target: {fileID: 9132112571699168085, guid: 8af3182aecbc50d49bd7fe8e88333abe, type: 3}
+      propertyPath: m_Color.r
+      value: 0.5188679
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

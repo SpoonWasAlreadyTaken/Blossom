@@ -61,7 +61,7 @@ public class PlayerHealth : MonoBehaviour
         if (hitPoints <= 0)
         {
             //temporary in place of what actually happens when the player dies
-            //SceneManager.LoadScene("MainMenu");
+            SceneManager.LoadScene("MainMenu");
         }
     }
 

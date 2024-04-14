@@ -9,7 +9,6 @@ public class ClubProjectile : MonoBehaviour
     [SerializeField] private int damage = 1;
 
     [SerializeField] private float projectileSpeed = 20f;
-    [SerializeField] private float rotationSpeed = 45f;
 
     [SerializeField] private float projectileDuration = 5f;
 
@@ -36,7 +35,6 @@ public class ClubProjectile : MonoBehaviour
 
         if (collision.gameObject.CompareTag("Player") && player != null)
         {
-            Debug.Log("Ouch");
             player.TakeDamage(damage);
             Destroy(gameObject);
         }
