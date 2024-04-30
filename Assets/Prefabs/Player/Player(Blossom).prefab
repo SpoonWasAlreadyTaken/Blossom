@@ -257,12 +257,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 005dd1904f4b0f8409d17f38c2efd017, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitPoints: -1
+  hitPoints: 0
   hitPointMaximum: 50
   iFrameLength: 0.3
   immune: 0
-  movement: {fileID: 5829812436954659017}
   playerSprite: {fileID: 3722127592493129702}
+  cloudSprite: {fileID: 6518580498513511990}
+  animPlayer: {fileID: 955041520055012006}
+  movement: {fileID: 5829812436954659017}
+  attackStick: {fileID: 6549949167805393425}
 --- !u!114 &5829812436954659017
 MonoBehaviour:
   m_ObjectHideFlags: 0
