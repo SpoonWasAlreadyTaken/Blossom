@@ -10632,10 +10632,6 @@ PrefabInstance:
       propertyPath: deathScreen
       value: 
       objectReference: {fileID: 1099100482}
-    - target: {fileID: 6518580498513511990, guid: 33dc0f9541a69d94ba4eb3026db83f09, type: 3}
-      propertyPath: m_SortingOrder
-      value: 10
-      objectReference: {fileID: 0}
     - target: {fileID: 8082932989220392866, guid: 33dc0f9541a69d94ba4eb3026db83f09, type: 3}
       propertyPath: m_LocalPosition.x
       value: -10.97

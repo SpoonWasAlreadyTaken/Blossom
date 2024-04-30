@@ -293,6 +293,9 @@ MonoBehaviour:
   dodgeCooldown: 0.3
   staminaMax: 20
   staminaRegeneration: 5
+  fallDamageEnabled: 1
+  fallDamageThreshold: -30
+  fallDamageMultiplier: 0.1
   groundCheck: {fileID: 8451035701373528587}
   wallCheck: {fileID: 3724820556180423719}
   wallCheckSize: 0.35
@@ -305,6 +308,7 @@ MonoBehaviour:
   animPlayer: {fileID: 955041520055012006}
   animCloud: {fileID: 1010656849192692308}
   playerSprite: {fileID: 3722127592493129702}
+  playerHealth: {fileID: 1449168943283134797}
   isDodging: 0
   stamina: 0
 --- !u!114 &7234556136975739569
