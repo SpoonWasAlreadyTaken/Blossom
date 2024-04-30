@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
 public class Movement : MonoBehaviour
@@ -31,6 +32,12 @@ public class Movement : MonoBehaviour
     public float staminaMax = 20;
     [SerializeField] private float staminaRegeneration = 1f;
 
+    [Header("Fall Damage")]
+
+    [SerializeField] private bool fallDamageEnabled = false;
+    [SerializeField] private float fallDamageThreshold = -25f;
+    [SerializeField] private float fallDamageMultiplier = 1f;
+
     [Header("Unity Inputs")]
 
     //Unity inputs
@@ -42,6 +49,8 @@ public class Movement : MonoBehaviour
     [SerializeField] private Animator animPlayer;
     [SerializeField] private Animator animCloud;
     [SerializeField] private SpriteRenderer playerSprite;
+    [SerializeField] private PlayerHealth playerHealth;
+
 
 
     //Private values for movement controller. Don't touch
@@ -59,6 +68,9 @@ public class Movement : MonoBehaviour
     private bool normalDodge = false;
     private bool neutralDodge = false;
     private float jumpBoost;
+    private bool willTakeFallDamage;
+    private float fallDamage;
+
 
 
     private void Awake()
@@ -214,6 +226,11 @@ public class Movement : MonoBehaviour
                 player.velocity = new Vector2(player.velocity.x * .825f - dodgeDistance, player.velocity.y);
             }
         }
+
+        if (fallDamageEnabled)
+        {
+            FallDamage();
+        }
     }
 
 
@@ -237,6 +254,23 @@ public class Movement : MonoBehaviour
             Vector3 localScale = transform.localScale;
             localScale.x *= -1f;
             transform.localScale = localScale;
+        }
+    }
+
+    private void FallDamage()
+    {
+
+        if (player.velocity.y < fallDamageThreshold)
+        {
+            willTakeFallDamage = true;
+            fallDamage = Mathf.Abs(player.velocity.y);
+        }
+        
+        if (willTakeFallDamage && Mathf.Abs(player.velocity.y) <= 0.1f)
+        {
+            int fallDamageTaken = Mathf.RoundToInt(fallDamage * fallDamageMultiplier);
+            playerHealth.TakeDamageIgnoreIFrames(fallDamageTaken);
+            willTakeFallDamage = false;
         }
     }
 
