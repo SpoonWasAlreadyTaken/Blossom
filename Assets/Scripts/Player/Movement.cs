@@ -58,6 +58,7 @@ public class Movement : MonoBehaviour
     private bool sprinting;
     private bool normalDodge = false;
     private bool neutralDodge = false;
+    private float jumpBoost;
 
 
     private void Awake()
@@ -92,7 +93,7 @@ public class Movement : MonoBehaviour
         if (jumpBufferCounter > 0f && coyoteTimeCounter > 0 || jumps < extraJumps && Input.GetButtonDown("Jump")) //makes the player jump
         {
             jumps += 1;
-            player.velocity = new Vector2(player.velocity.x, jumpHeight);
+            player.velocity = new Vector2(player.velocity.x, jumpHeight * jumpBoost);
 
             jumpBufferCounter = 0f;
         }
@@ -165,6 +166,8 @@ public class Movement : MonoBehaviour
         if (sprinting && !isDodging && stamina > 0 && Mathf.Abs(player.velocity.x) > 0f)
         {
             sprintSpeed = 1.5f;
+            jumpBoost = 1.15f;
+            animPlayer.SetFloat("WalkSpeed", 2f);
             stamina -= .1f;
             regenerateStamina = false;
             playerSprite.color = Color.red;
@@ -173,6 +176,8 @@ public class Movement : MonoBehaviour
         {
             regenerateStamina = true;
             sprintSpeed = 1f;
+            jumpBoost = 1f;
+            animPlayer.SetFloat("WalkSpeed", 1f);
             playerSprite.color = Color.white;
             sprinting = false;
         }
