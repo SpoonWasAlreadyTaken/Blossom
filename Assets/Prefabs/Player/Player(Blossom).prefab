@@ -261,11 +261,13 @@ MonoBehaviour:
   hitPointMaximum: 50
   iFrameLength: 0.3
   immune: 0
+  minSat: 70
   playerSprite: {fileID: 3722127592493129702}
   cloudSprite: {fileID: 6518580498513511990}
   animPlayer: {fileID: 955041520055012006}
   movement: {fileID: 5829812436954659017}
   attackStick: {fileID: 6549949167805393425}
+  deathScreen: {fileID: 0}
 --- !u!114 &5829812436954659017
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -445,7 +447,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 10
   m_Sprite: {fileID: 21300000, guid: 08c8351d57c1fba40bbefc0093527fec, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

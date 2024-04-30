@@ -175,12 +175,14 @@ public class EnemyGrandpa : MonoBehaviour
     private IEnumerator ExhaustionReset()
     {
         isExhausted = true;
+        animGrandpa.SetBool("IsTired", true);
         Debug.Log("Exhausted");
 
 
         yield return new WaitForSeconds(exhaustionTimer);
         exhaustion = 0;
         isExhausted = false;
+        animGrandpa.SetBool("IsTired", false);
     }
 
     private void OnDrawGizmos()

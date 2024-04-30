@@ -23,7 +23,6 @@ public class ParallaxBG : MonoBehaviour
         Texture2D texture = sprite.texture;
         textureUnitSizeX = texture.width / sprite.pixelsPerUnit;
         textureUnitSizeY = texture.height / sprite.pixelsPerUnit;
-
     }
 
     private void FixedUpdate()

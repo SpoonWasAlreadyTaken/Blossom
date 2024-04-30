@@ -79,7 +79,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: b39059b363277ca458dea0fc055b9320, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -124,10 +124,10 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 80
-  m_LinearDrag: 0
+  m_Mass: 180
+  m_LinearDrag: 0.1
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 2
   m_Material: {fileID: 6200000, guid: 2c6f0045a72032543a9bf52d69d09a23, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
@@ -192,7 +192,7 @@ MonoBehaviour:
   attackTime: 0.37
   speed: 5
   grandpa: {fileID: 1761037506126760438}
-  tooClose: 2.5
+  tooClose: 3
   exhaustionMax: 5
   exhaustionTimer: 5
   attackOrigin: {fileID: 4415772939294966731}
