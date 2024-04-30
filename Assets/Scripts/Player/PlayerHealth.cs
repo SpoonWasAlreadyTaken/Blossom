@@ -29,6 +29,10 @@ public class PlayerHealth : MonoBehaviour
     public Movement movement;
     [SerializeField] private PlayerAttackStick attackStick;
 
+    [Header("Death Screen")]
+    [SerializeField] private GameObject deathScreen;
+
+
     //private values
     private float iFrames;
     private bool isFlashing = false;
@@ -48,6 +52,7 @@ public class PlayerHealth : MonoBehaviour
         GameObject VPPV = GameObject.FindGameObjectWithTag("PPV");
         ppv = VPPV.GetComponent<Volume>();
         ppv.profile.TryGet<UnityEngine.Rendering.Universal.ColorAdjustments>(out ca);
+        deathScreen.SetActive(false);
     }
 
     void FixedUpdate()
@@ -175,10 +180,9 @@ public class PlayerHealth : MonoBehaviour
         playerSprite.color = new Color(0.5f, 0.5f, 0.5f, playerSprite.color.a);
         StartCoroutine(CloudDark());
 
-
         yield return new WaitForSeconds(4f);
 
-        SceneManager.LoadScene("MainMenu");
+        deathScreen.SetActive(true);
     }
 
     IEnumerator CloudDark()
