@@ -45,6 +45,7 @@ public class FallingPlatform : MonoBehaviour
             wobble = wobble * -1.025f;
 
             yield return new WaitForSeconds(timeToFall / 30);
+            transform.Rotate(0, 0, wobble, Space.Self);
         }
 
         StartCoroutine(Destroy());
