@@ -50,6 +50,8 @@ public class Movement : MonoBehaviour
     [SerializeField] private Animator animCloud;
     [SerializeField] private SpriteRenderer playerSprite;
     [SerializeField] private PlayerHealth playerHealth;
+    [SerializeField] private AudioSource audioWalk;
+    [SerializeField] private AudioSource audioJump;
 
 
 
@@ -106,6 +108,7 @@ public class Movement : MonoBehaviour
         {
             jumps += 1;
             player.velocity = new Vector2(player.velocity.x, jumpHeight * jumpBoost);
+            audioJump.Play();
 
             jumpBufferCounter = 0f;
         }
@@ -156,6 +159,15 @@ public class Movement : MonoBehaviour
         UpdateAnimation();
 
         Flip(); 
+
+        if (Mathf.Abs(horizontalSpeed) > 0) 
+        { 
+            audioWalk.enabled = true;
+        }
+        else
+        {
+            audioWalk.enabled = false;
+        }
     }
 
     //handles the players movement at a fixed time (20 times a second) so it can't move faster or slower depending on the FPS
