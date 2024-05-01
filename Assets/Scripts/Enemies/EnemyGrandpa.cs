@@ -29,6 +29,8 @@ public class EnemyGrandpa : MonoBehaviour
     private GameObject player;
     [SerializeField] private Transform attackOrigin;
     [SerializeField] private Animator animGrandpa;
+    [SerializeField] private AudioSource audioWalk;
+    [SerializeField] private AudioSource audioThrow;
 
 
     //Private inaccessable 
@@ -75,6 +77,11 @@ public class EnemyGrandpa : MonoBehaviour
             if (distance > tooClose)
             {
                 Movement();
+                audioWalk.enabled = true;
+            }
+            else
+            {
+                audioWalk.enabled = false;
             }
         }
         else if (!isExhausted)
@@ -167,6 +174,9 @@ public class EnemyGrandpa : MonoBehaviour
 
 
         yield return new WaitForSeconds(attackTime);
+
+        audioThrow.Play();
+
         Instantiate(projectile, attackOrigin.position, attackOrigin.rotation);
         isAttacking = false;
         exhaustion++;

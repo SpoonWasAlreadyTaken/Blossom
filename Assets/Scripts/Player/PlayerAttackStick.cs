@@ -17,6 +17,7 @@ public class PlayerAttackStick : MonoBehaviour
     [SerializeField] private Animator animPlayer;
     [SerializeField] private Transform attackPoint;
     [SerializeField] private LayerMask damagables;
+    [SerializeField] private AudioSource audioAttack;
 
     //hiden values
 
@@ -45,6 +46,8 @@ public class PlayerAttackStick : MonoBehaviour
 
 
         yield return new WaitForSeconds(attackSpeed);
+
+        audioAttack.Play();
 
         Collider2D[] damagable = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, damagables);
         foreach (Collider2D enemy in damagable)
