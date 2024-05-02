@@ -615,6 +615,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: OptionsMenu
       objectReference: {fileID: 0}
+    - target: {fileID: 9124507860169371071, guid: 5352e19591fe7224b952f4273c15c985, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 7556983416728092233, guid: 5352e19591fe7224b952f4273c15c985, type: 3}
