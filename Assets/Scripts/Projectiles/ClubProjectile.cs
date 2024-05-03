@@ -12,7 +12,7 @@ public class ClubProjectile : MonoBehaviour
 
     [SerializeField] private float projectileDuration = 5f;
 
-    [SerializeField] private GameObject PlayerCharacter;
+    private GameObject PlayerCharacter;
     [SerializeField] private Rigidbody2D projectile;
 
 

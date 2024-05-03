@@ -147,8 +147,9 @@ public class PlayerHealth : MonoBehaviour
             if (!dead)
             {
                 playerSprite.color = Color.red;
-                yield return new WaitForSeconds(.4f);
+                yield return new WaitForSeconds(.1f);
                 playerSprite.color = new Color(0, playerSprite.color.g, playerSprite.color.b, playerSprite.color.a);
+                yield return new WaitForSeconds(.1f);
             }
         }
         isHurting = false;

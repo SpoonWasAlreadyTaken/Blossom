@@ -1,10 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.XR;
 
-public class EnemyGrandpa : MonoBehaviour
+public class EnemyGrandma : MonoBehaviour
 {
     [Header("Attack")]
 
@@ -18,18 +16,18 @@ public class EnemyGrandpa : MonoBehaviour
     [Header("Movement")]
 
     [SerializeField] private float speed;
-    [SerializeField] private Rigidbody2D grandpa;
-    [SerializeField] private float tooClose;
+    [SerializeField] private Rigidbody2D grandma;
+    [SerializeField] private SpriteRenderer spriteGrandma;
+    [SerializeField] private float followDistance = 10f;
     [SerializeField] private int exhaustionMax = 5;
     [SerializeField] private float exhaustionTimer = 4f;
-    
+
 
     [Header("Inputs")]
 
     private GameObject player;
     [SerializeField] private Transform attackOrigin;
-    [SerializeField] private Animator animGrandpa;
-    [SerializeField] private AudioSource audioWalk;
+    [SerializeField] private Animator animGrandma;
     [SerializeField] private AudioSource audioThrow;
 
 
@@ -39,7 +37,6 @@ public class EnemyGrandpa : MonoBehaviour
     private bool isAttacking;
     private float horizontal;
     private int playerDirection;
-    private bool above;
     private bool faceR;
     private int exhaustion;
     private bool isExhausted = false;
@@ -53,7 +50,6 @@ public class EnemyGrandpa : MonoBehaviour
     }
 
 
-
     void FixedUpdate()
     {
         distance = Vector2.Distance(transform.position, player.transform.position);
@@ -62,51 +58,19 @@ public class EnemyGrandpa : MonoBehaviour
         Flip();
         DirectionFinder();
 
-        if (exhaustion < exhaustionMax)
+        if (exhaustion < exhaustionMax && followDistance > distance)
         {
             Attack();
 
+            transform.position = Vector2.MoveTowards(this.transform.position, player.transform.position, speed);
 
-            if (distance > tooClose)
-            {
-                Movement();
-                audioWalk.enabled = true;
-            }
-            else
-            {
-                audioWalk.enabled = false;
-            }
         }
         else if (!isExhausted)
         {
             StartCoroutine(ExhaustionReset());
         }
-
-        if (distance < tooClose)
-        {
-            horizontal = 0;
-        }
-
-
-
-        animGrandpa.SetFloat("GrandpaSpeed", Mathf.Abs(horizontal));
-
     }
 
-    private void Movement()
-    {
-        if (!above)
-        {
-            horizontal = playerDirection;
-        }
-        else
-        {
-            horizontal = 0;
-        }
-
-        grandpa.velocity = new Vector2(horizontal * speed, grandpa.velocity.y);
-
-    }
 
     private void Attack()
     {
@@ -118,7 +82,7 @@ public class EnemyGrandpa : MonoBehaviour
 
         if (attackCD <= 0 && distance <= attackRange)
         {
-            StartCoroutine(AttackClub());
+            StartCoroutine(AttackCupcake());
         }
     }
 
@@ -127,15 +91,6 @@ public class EnemyGrandpa : MonoBehaviour
         Vector2 direction = player.transform.position - transform.position;
 
         float angle = Mathf.Atan2(direction.x, direction.y) * Mathf.Rad2Deg;
-
-        if (angle > -45 && angle < 45)
-        {
-            above = true;
-        }
-        else
-        {
-            above = false;
-        }
 
 
         if (angle < -45)
@@ -158,12 +113,12 @@ public class EnemyGrandpa : MonoBehaviour
         }
     }
 
-    private IEnumerator AttackClub()
+    private IEnumerator AttackCupcake()
     {
         attackCD = attackSpeed;
         isAttacking = true;
-        animGrandpa.SetTrigger("GrandpaAttack");
-        Debug.Log("bonk");
+        animGrandma.SetTrigger("Attack");
+        Debug.Log("Food");
 
 
         yield return new WaitForSeconds(attackTime);
@@ -172,25 +127,42 @@ public class EnemyGrandpa : MonoBehaviour
 
         Instantiate(projectile, attackOrigin.position, attackOrigin.rotation);
         isAttacking = false;
+    }
+
+    public void Feed()
+    {
         exhaustion++;
+
+        StartCoroutine(FeedingFlash());
+    }
+
+    private IEnumerator FeedingFlash()
+    {
+        for (int i = 0; i < 2; i++)
+        {
+            spriteGrandma.color = Color.red;
+            yield return new WaitForSeconds(.1f);
+            spriteGrandma.color = Color.white;
+            yield return new WaitForSeconds(.1f);
+        }
     }
 
     private IEnumerator ExhaustionReset()
     {
         isExhausted = true;
-        animGrandpa.SetBool("IsTired", true);
+        animGrandma.SetBool("Tired", true);
         Debug.Log("Exhausted");
 
 
         yield return new WaitForSeconds(exhaustionTimer);
         exhaustion = 0;
         isExhausted = false;
-        animGrandpa.SetBool("IsTired", false);
+        animGrandma.SetBool("Tired", false);
     }
 
     private void OnDrawGizmos()
     {
         Gizmos.DrawWireSphere(transform.position, attackRange);
-        Gizmos.DrawWireSphere(transform.position, tooClose);
+        Gizmos.DrawWireSphere(transform.position, followDistance);
     }
 }
