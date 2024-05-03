@@ -538,6 +538,9 @@ MonoBehaviour:
   attackCooldown: 0.6
   attackDamage: 1
   attackRange: 0.5
+  comboAttacks: 1
+  comboTime: 1
+  comboMaxStacks: 4
   animPlayer: {fileID: 955041520055012006}
   attackPoint: {fileID: 3772456109616510752}
   damagables:

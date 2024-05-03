@@ -20,6 +20,7 @@ public class PlayerAttackStick : MonoBehaviour
     [SerializeField] private Animator animPlayer;
     [SerializeField] private Transform attackPoint;
     [SerializeField] private LayerMask damagables;
+    [SerializeField] private LayerMask cupcakes;
     [SerializeField] private AudioSource audioAttack;
 
     //hiden values
@@ -83,6 +84,12 @@ public class PlayerAttackStick : MonoBehaviour
             enemy.GetComponent<EnemyHealth>().EnemyTakeDamage(attackDamage);
         }
 
+        Collider2D[] cupcake = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, cupcakes);
+        foreach (Collider2D cupcakeHit in cupcake)
+        {
+            cupcakeHit.GetComponent<CupcakeProjectile>().FeedGrandma();
+        }
+
         timer1 = attackCooldown;
         isAttacking = false;
 
@@ -131,6 +138,12 @@ public class PlayerAttackStick : MonoBehaviour
                 {
                     enemy.GetComponent<EnemyHealth>().EnemyTakeDamage(attackDamage * 2);
                 }
+            }
+
+            Collider2D[] cupcake = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, cupcakes);
+            foreach (Collider2D cupcakeHit in cupcake)
+            {
+                cupcakeHit.GetComponent<CupcakeProjectile>().FeedGrandma();
             }
 
             timer1 = attackCooldown / comboStacks;
