@@ -18,7 +18,6 @@ public class EnemyGrandpa : MonoBehaviour
     [Header("Movement")]
 
     [SerializeField] private float speed;
-    [SerializeField] private Rigidbody2D grandpa;
     [SerializeField] private float tooClose;
     [SerializeField] private int exhaustionMax = 5;
     [SerializeField] private float exhaustionTimer = 4f;
@@ -31,6 +30,7 @@ public class EnemyGrandpa : MonoBehaviour
     [SerializeField] private Animator animGrandpa;
     [SerializeField] private AudioSource audioWalk;
     [SerializeField] private AudioSource audioThrow;
+    [SerializeField] private Rigidbody2D grandpa;
 
 
     //Private inaccessable 
@@ -151,7 +151,7 @@ public class EnemyGrandpa : MonoBehaviour
 
     private void Flip()
     {
-        if (faceR && playerDirection < 0 || !faceR && playerDirection > 0)
+        if (faceR && playerDirection > 0 || !faceR && playerDirection < 0)
         {
             faceR = !faceR;
             transform.Rotate(0f, 180f, 0f);

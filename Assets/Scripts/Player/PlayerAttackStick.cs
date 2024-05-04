@@ -22,6 +22,7 @@ public class PlayerAttackStick : MonoBehaviour
     [SerializeField] private LayerMask damagables;
     [SerializeField] private LayerMask cupcakes;
     [SerializeField] private AudioSource audioAttack;
+    [SerializeField] private PlayerHealth playerHealth;
 
     //hiden values
 
@@ -82,6 +83,12 @@ public class PlayerAttackStick : MonoBehaviour
         foreach (Collider2D enemy in damagable)
         {
             enemy.GetComponent<EnemyHealth>().EnemyTakeDamage(attackDamage);
+
+            if (playerHealth.isPoisoned)
+            {
+                enemy.GetComponent<EnemyTherapist>().Poisoned();
+                playerHealth.isPoisoned = false;
+            }
         }
 
         Collider2D[] cupcake = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, cupcakes);
@@ -133,10 +140,22 @@ public class PlayerAttackStick : MonoBehaviour
                 if (comboStacks < comboMaxStacks)
                 {
                     enemy.GetComponent<EnemyHealth>().EnemyTakeDamage(attackDamage);
+
+                    if (playerHealth.isPoisoned)
+                    {
+                        enemy.GetComponent<EnemyTherapist>().Poisoned();
+                        playerHealth.isPoisoned = false;
+                    }
                 }
                 else
                 {
                     enemy.GetComponent<EnemyHealth>().EnemyTakeDamage(attackDamage * 2);
+
+                    if (playerHealth.isPoisoned)
+                    {
+                        enemy.GetComponent<EnemyTherapist>().Poisoned();
+                        playerHealth.isPoisoned = false;
+                    }
                 }
             }
 

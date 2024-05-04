@@ -16,8 +16,7 @@ public class EnemyGrandma : MonoBehaviour
     [Header("Movement")]
 
     [SerializeField] private float speed;
-    [SerializeField] private Rigidbody2D grandma;
-    [SerializeField] private SpriteRenderer spriteGrandma;
+
     [SerializeField] private float followDistance = 10f;
     [SerializeField] private int exhaustionMax = 5;
     [SerializeField] private float exhaustionTimer = 4f;
@@ -29,6 +28,8 @@ public class EnemyGrandma : MonoBehaviour
     [SerializeField] private Transform attackOrigin;
     [SerializeField] private Animator animGrandma;
     [SerializeField] private AudioSource audioThrow;
+    [SerializeField] private Rigidbody2D grandma;
+    [SerializeField] private SpriteRenderer spriteGrandma;
 
 
     //Private inaccessable 

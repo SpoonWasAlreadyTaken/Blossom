@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class CupcakeProjectile : MonoBehaviour
 {
-    public PlayerHealth player;
     [SerializeField] private int damage = 1;
 
     [SerializeField] private float projectileSpeed = 20f;

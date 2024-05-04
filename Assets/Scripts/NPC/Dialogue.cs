@@ -1,7 +1,11 @@
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
+using Unity.VisualScripting;
+
 
 public class Dialogue : MonoBehaviour
 {
@@ -13,21 +17,36 @@ public class Dialogue : MonoBehaviour
     [SerializeField] private GameObject dialogueBox;
     //Background values
     [SerializeField] private float npcDialogueRange = 3f;
-    [SerializeField] private GameObject playerCharacter;
 
-    [Header("EnemySpawn")]
 
-    [SerializeField] private bool SpawnEnemyOnDialogueEnd = false;
+    [Header("Enemy Spawn")]
+
+    [SerializeField] private bool spawnEnemyOnDialogueEnd = false;
     [SerializeField] private GameObject enemyToSpawn;
+
+    [Header("Defeated Enemy")]
+
+    [SerializeField] private bool proceedToNextArea = false;
+    [SerializeField] private Transform doorOrigin;
+    [SerializeField] private float doorSize = 3f;
+    [SerializeField] private Vector3 doorLocation;
 
 
     //Script values don't touch.
     private float distance;
     private bool endOfDialogue = false;
     private bool dialogueStarted = false;
-    
+    private bool ableToProceed = false;
+    private float distanceDoor;
+    private GameObject playerCharacter;
+
 
     private int index;
+
+    private void Awake()
+    {
+        playerCharacter = GameObject.FindGameObjectWithTag("Player");
+    }
 
 
 
@@ -35,6 +54,10 @@ public class Dialogue : MonoBehaviour
     {
         distance = Vector2.Distance(transform.position, playerCharacter.transform.position);
 
+        if (doorOrigin != null ) 
+        {
+            distanceDoor = Vector2.Distance(doorOrigin.position, playerCharacter.transform.position);
+        }
 
 
         if (Input.GetMouseButtonDown(0) && distance < npcDialogueRange && dialogueStarted)
@@ -54,6 +77,14 @@ public class Dialogue : MonoBehaviour
         {
             StartDialogue();
             dialogueStarted = true;
+        }
+
+        if (proceedToNextArea)
+        {
+            if (ableToProceed && distanceDoor < doorSize && Input.GetKeyDown(KeyCode.E))
+            {
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            }
         }
 
         IsNearNPC();
@@ -90,10 +121,16 @@ public class Dialogue : MonoBehaviour
             dialogueBox.SetActive(false);
             endOfDialogue = true;
 
-            if (SpawnEnemyOnDialogueEnd && enemyToSpawn != null)
+            if (spawnEnemyOnDialogueEnd && enemyToSpawn != null)
             {
                 Instantiate(enemyToSpawn, transform.position, transform.rotation);
                 Object.Destroy(gameObject);
+            }
+
+            if (proceedToNextArea && doorOrigin != null)
+            {
+                doorOrigin.position = Vector3.MoveTowards(this.transform.position, doorLocation, 10000);
+                ableToProceed = true;
             }
         }
     }
@@ -118,6 +155,11 @@ public class Dialogue : MonoBehaviour
     private void OnDrawGizmos()
     {
         Gizmos.DrawWireSphere(transform.position, npcDialogueRange);
+
+        if (doorOrigin != null)
+        {
+            Gizmos.DrawWireSphere(doorOrigin.position, doorSize);
+        }
     }
 }
 

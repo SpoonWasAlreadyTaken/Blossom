@@ -8,6 +8,8 @@ TagManager:
   - Ground
   - PPV
   - Grandma
+  - Enemy
+  - LoseScreen
   layers:
   - Default
   - TransparentFX
