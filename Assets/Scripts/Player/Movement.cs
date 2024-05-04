@@ -289,7 +289,6 @@ public class Movement : MonoBehaviour
         isDodging = true;
         neutralDodge = true;
         regenerateStamina = false;
-        playerSprite.color = Color.blue;
 
 
         yield return new WaitForSeconds(dodgeTime * .7f);
@@ -297,7 +296,6 @@ public class Movement : MonoBehaviour
         dodgeCD = dodgeCooldown * .5f;
         isDodging = false;
         neutralDodge = false;
-        playerSprite.color = Color.white;
         regenerateStamina = true;
     }
 
@@ -306,14 +304,12 @@ public class Movement : MonoBehaviour
         isDodging = true;
         normalDodge = true;
         regenerateStamina = false;
-        playerSprite.color = Color.green;
 
         yield return new WaitForSeconds(dodgeTime);
 
         dodgeCD = dodgeCooldown;
         isDodging = false;
         normalDodge = false;
-        playerSprite.color = Color.white;
         regenerateStamina = true;
     }
 

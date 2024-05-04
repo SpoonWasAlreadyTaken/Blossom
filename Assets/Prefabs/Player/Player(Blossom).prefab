@@ -459,10 +459,12 @@ MonoBehaviour:
   playerSprite: {fileID: 3722127592493129702}
   cloudSprite: {fileID: 6518580498513511990}
   animPlayer: {fileID: 955041520055012006}
+  animCloud: {fileID: 1010656849192692308}
   movement: {fileID: 5829812436954659017}
   attackStick: {fileID: 6549949167805393425}
   deathScreen: {fileID: 0}
   victoryScreen: {fileID: 0}
+  clickToWin: 0
   isPoisoned: 0
 --- !u!114 &5829812436954659017
 MonoBehaviour:
