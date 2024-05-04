@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class ClubProjectile : MonoBehaviour
 {
-    public PlayerHealth player;
     [SerializeField] private int damage = 1;
 
     [SerializeField] private float projectileSpeed = 20f;

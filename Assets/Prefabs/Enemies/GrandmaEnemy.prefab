@@ -353,8 +353,8 @@ MonoBehaviour:
   hitPoints: 0
   maximumHitPoints: 50
   enemySprite: {fileID: 3227033717753437957}
-  spawnOnDeath: 0
-  onDeathSpawn: {fileID: 0}
+  spawnOnDeath: 1
+  onDeathSpawn: {fileID: 2451049303728165846, guid: 1dfc63e9f850c48428eb94c08fb30897, type: 3}
   healthBar: {fileID: 3235184663992673118}
   isDummy: 0
 --- !u!114 &368951521815815343
@@ -374,14 +374,14 @@ MonoBehaviour:
   attackRange: 10
   attackTime: 0.35
   speed: 0.02
-  grandma: {fileID: 8897688501496714769}
-  spriteGrandma: {fileID: 3227033717753437957}
   followDistance: 20
   exhaustionMax: 3
   exhaustionTimer: 5
   attackOrigin: {fileID: 3633412405338392342}
   animGrandma: {fileID: 2648898089150830830}
   audioThrow: {fileID: 7891538514211379460}
+  grandma: {fileID: 8897688501496714769}
+  spriteGrandma: {fileID: 3227033717753437957}
 --- !u!1001 &4190674822277980927
 PrefabInstance:
   m_ObjectHideFlags: 0

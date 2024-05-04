@@ -194,7 +194,6 @@ public class Movement : MonoBehaviour
             animPlayer.SetFloat("WalkSpeed", 2f);
             stamina -= .1f;
             regenerateStamina = false;
-            playerSprite.color = Color.red;
         }
         else if (!isDodging)
         {
@@ -202,7 +201,6 @@ public class Movement : MonoBehaviour
             sprintSpeed = 1f;
             jumpBoost = 1f;
             animPlayer.SetFloat("WalkSpeed", 1f);
-            playerSprite.color = Color.white;
             sprinting = false;
         }
 

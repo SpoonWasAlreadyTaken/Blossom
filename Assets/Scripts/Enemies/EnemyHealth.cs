@@ -9,8 +9,8 @@ public class EnemyHealth : MonoBehaviour
 {
     [Header("Health Settings")]
 
-    [SerializeField] private float hitPoints;
-    [SerializeField] private float maximumHitPoints = 5;
+    public float hitPoints;
+    public float maximumHitPoints = 5;
 
     [SerializeField] private SpriteRenderer enemySprite;
 
@@ -40,9 +40,10 @@ public class EnemyHealth : MonoBehaviour
 
         if (hitPoints <= 0 && !isDummy)
         {
-            if (spawnOnDeath) 
+            if (spawnOnDeath && onDeathSpawn != null) 
             {
-                Instantiate(onDeathSpawn, transform.position, transform.rotation);
+                Instantiate(onDeathSpawn, transform.position, new Quaternion(0,0,0,0));
+                Destroy(gameObject);
             }
             else
             {

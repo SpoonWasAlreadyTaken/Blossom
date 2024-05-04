@@ -26,11 +26,12 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] private Animator animPlayer;
     
     [Header("Disable Components")]
-    public Movement movement;
+    [SerializeField] private Movement movement;
     [SerializeField] private PlayerAttackStick attackStick;
 
-    [Header("Death Screen")]
+    [Header("Screen")]
     [SerializeField] private GameObject deathScreen;
+    [SerializeField] private GameObject victoryScreen;
 
 
     //private values
@@ -40,6 +41,9 @@ public class PlayerHealth : MonoBehaviour
     private bool isHealing = false;
     private bool dead = false;
     private Volume ppv;
+
+    public bool isPoisoned = false;
+
     UnityEngine.Rendering.Universal.ColorAdjustments ca;
 
 
@@ -148,7 +152,7 @@ public class PlayerHealth : MonoBehaviour
             {
                 playerSprite.color = Color.red;
                 yield return new WaitForSeconds(.1f);
-                playerSprite.color = new Color(0, playerSprite.color.g, playerSprite.color.b, playerSprite.color.a);
+                playerSprite.color = Color.white;
                 yield return new WaitForSeconds(.1f);
             }
         }
@@ -164,7 +168,7 @@ public class PlayerHealth : MonoBehaviour
             {
                 playerSprite.color = Color.green;
                 yield return new WaitForSeconds(.4f);
-                playerSprite.color = new Color(playerSprite.color.r, 0, playerSprite.color.b, playerSprite.color.a);
+                playerSprite.color = Color.white;
             }
         }
         isHealing = false;
@@ -185,6 +189,54 @@ public class PlayerHealth : MonoBehaviour
 
         deathScreen.SetActive(true);
     }
+
+    public void Poison(float duration)
+    {
+        StartCoroutine(Poisoned(duration));
+    }
+
+
+    private IEnumerator Poisoned(float duration)
+    {
+        isPoisoned = true;
+        playerSprite.color = new Color(1, 0, 1, 1);
+
+        for (int i = 0; i < 3; i++)
+        {
+            if (isPoisoned)
+            {
+                playerSprite.color = new Color(1, 0, 1, 1);
+                yield return new WaitForSeconds(duration / 6);
+                TakeDamageIgnoreIFrames(1);
+                playerSprite.color = new Color(1, 0.3f, 1, 1);
+                yield return new WaitForSeconds(duration / 6);
+            }
+            else
+            {
+                playerSprite.color = Color.white;
+            }
+        }
+        playerSprite.color = Color.white;
+        isPoisoned = false;
+    }
+
+    public void Win()
+    {
+        StartCoroutine(Victory());
+    }
+
+    private IEnumerator Victory()
+    {
+        hitPoints = hitPointMaximum;
+        //animPlayer.SetTrigger("Won");
+        GameObject enemy = GameObject.FindGameObjectWithTag("Enemy");
+        Destroy(enemy);
+
+        yield return new WaitForSeconds(4f);
+
+        victoryScreen.SetActive(true);
+    }
+
 
     IEnumerator CloudDark()
     {

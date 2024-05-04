@@ -192,7 +192,6 @@ MonoBehaviour:
   attackRange: 6
   attackTime: 0.37
   speed: 5
-  grandpa: {fileID: 1761037506126760438}
   tooClose: 3
   exhaustionMax: 5
   exhaustionTimer: 5
@@ -200,6 +199,7 @@ MonoBehaviour:
   animGrandpa: {fileID: 1091043527343405683}
   audioWalk: {fileID: 6133514108564367937}
   audioThrow: {fileID: 1338803009767261028}
+  grandpa: {fileID: 1761037506126760438}
 --- !u!114 &6279696601828006178
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -215,8 +215,8 @@ MonoBehaviour:
   hitPoints: 0
   maximumHitPoints: 50
   enemySprite: {fileID: 6746269656558752571}
-  spawnOnDeath: 0
-  onDeathSpawn: {fileID: 0}
+  spawnOnDeath: 1
+  onDeathSpawn: {fileID: 7866100980804237692, guid: cbaac2a409c79c143976d444015e7bdf, type: 3}
   healthBar: {fileID: 7889513731881585935}
   isDummy: 0
 --- !u!82 &6133514108564367937
