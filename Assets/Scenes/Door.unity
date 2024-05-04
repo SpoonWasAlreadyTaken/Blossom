@@ -211,6 +211,10 @@ PrefabInstance:
       propertyPath: deathScreen
       value: 
       objectReference: {fileID: 224855670}
+    - target: {fileID: 1449168943283134797, guid: 33dc0f9541a69d94ba4eb3026db83f09, type: 3}
+      propertyPath: victoryScreen
+      value: 
+      objectReference: {fileID: 224855671}
     - target: {fileID: 8082932989220392866, guid: 33dc0f9541a69d94ba4eb3026db83f09, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.62
@@ -638,6 +642,11 @@ GameObject:
 --- !u!1 &224855670 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2838659905106049472, guid: 5352e19591fe7224b952f4273c15c985, type: 3}
+  m_PrefabInstance: {fileID: 224855667}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &224855671 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 966548990480540152, guid: 5352e19591fe7224b952f4273c15c985, type: 3}
   m_PrefabInstance: {fileID: 224855667}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &271095625

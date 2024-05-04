@@ -24,14 +24,16 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] private SpriteRenderer playerSprite;
     [SerializeField] private SpriteRenderer cloudSprite;
     [SerializeField] private Animator animPlayer;
-    
+    [SerializeField] private Animator animCloud;
+
+
     [Header("Disable Components")]
     [SerializeField] private Movement movement;
     [SerializeField] private PlayerAttackStick attackStick;
 
-    [Header("Screen")]
     [SerializeField] private GameObject deathScreen;
     [SerializeField] private GameObject victoryScreen;
+    [SerializeField] private bool clickToWin = false;
 
 
     //private values
@@ -54,6 +56,7 @@ public class PlayerHealth : MonoBehaviour
     {
         hitPoints = hitPointMaximum;
         GameObject VPPV = GameObject.FindGameObjectWithTag("PPV");
+
         ppv = VPPV.GetComponent<Volume>();
         ppv.profile.TryGet<UnityEngine.Rendering.Universal.ColorAdjustments>(out ca);
         deathScreen.SetActive(false);
@@ -74,6 +77,12 @@ public class PlayerHealth : MonoBehaviour
         if (immune && !isFlashing && !dead)
         {
             StartCoroutine(ImmunityFlashing());
+        }
+
+        if (clickToWin)
+        {
+            StartCoroutine(Victory());
+            clickToWin = false;
         }
     }
 
@@ -228,7 +237,7 @@ public class PlayerHealth : MonoBehaviour
     private IEnumerator Victory()
     {
         hitPoints = hitPointMaximum;
-        //animPlayer.SetTrigger("Won");
+        animCloud.SetTrigger("Victory");
         GameObject enemy = GameObject.FindGameObjectWithTag("Enemy");
         Destroy(enemy);
 
