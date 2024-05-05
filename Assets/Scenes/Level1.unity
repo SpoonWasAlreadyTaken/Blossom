@@ -1054,11 +1054,11 @@ PrefabInstance:
       objectReference: {fileID: 1895815262}
     - target: {fileID: 8082932989220392866, guid: 33dc0f9541a69d94ba4eb3026db83f09, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -15.33
+      value: -16.57
       objectReference: {fileID: 0}
     - target: {fileID: 8082932989220392866, guid: 33dc0f9541a69d94ba4eb3026db83f09, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.17
+      value: -2.74
       objectReference: {fileID: 0}
     - target: {fileID: 8082932989220392866, guid: 33dc0f9541a69d94ba4eb3026db83f09, type: 3}
       propertyPath: m_LocalPosition.z
@@ -27554,11 +27554,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7260337396062492774, guid: 7a6e23542bb4ea341adbb195626e7302, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -15.33
+      value: -16.57
       objectReference: {fileID: 0}
     - target: {fileID: 7260337396062492774, guid: 7a6e23542bb4ea341adbb195626e7302, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.57
+      value: -2.1399999
       objectReference: {fileID: 0}
     - target: {fileID: 7260337396062492774, guid: 7a6e23542bb4ea341adbb195626e7302, type: 3}
       propertyPath: m_LocalPosition.z
@@ -28041,11 +28041,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5013927155960795055, guid: 5a68b7c7a311f4f4cab40ca3af4977e0, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -15.33
+      value: -16.57
       objectReference: {fileID: 0}
     - target: {fileID: 5013927155960795055, guid: 5a68b7c7a311f4f4cab40ca3af4977e0, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.57
+      value: -2.1399999
       objectReference: {fileID: 0}
     - target: {fileID: 5013927155960795055, guid: 5a68b7c7a311f4f4cab40ca3af4977e0, type: 3}
       propertyPath: m_LocalPosition.z
@@ -28119,18 +28119,6 @@ PrefabInstance:
     - target: {fileID: 1242661108012322193, guid: 6522766cc8d29de44912a1adc30de235, type: 3}
       propertyPath: m_Name
       value: DialogueCanvas
-      objectReference: {fileID: 0}
-    - target: {fileID: 1405310193333902832, guid: 6522766cc8d29de44912a1adc30de235, type: 3}
-      propertyPath: m_fontAsset
-      value: 
-      objectReference: {fileID: 11400000, guid: 61230527531dfc7409e2e1cad2152059, type: 2}
-    - target: {fileID: 1405310193333902832, guid: 6522766cc8d29de44912a1adc30de235, type: 3}
-      propertyPath: m_sharedMaterial
-      value: 
-      objectReference: {fileID: -2904158119779576960, guid: 61230527531dfc7409e2e1cad2152059, type: 2}
-    - target: {fileID: 1405310193333902832, guid: 6522766cc8d29de44912a1adc30de235, type: 3}
-      propertyPath: m_hasFontAssetChanged
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2186691192631995225, guid: 6522766cc8d29de44912a1adc30de235, type: 3}
       propertyPath: m_Pivot.x
@@ -28210,18 +28198,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2186691192631995225, guid: 6522766cc8d29de44912a1adc30de235, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4060173202401319995, guid: 6522766cc8d29de44912a1adc30de235, type: 3}
-      propertyPath: m_fontAsset
-      value: 
-      objectReference: {fileID: 11400000, guid: 61230527531dfc7409e2e1cad2152059, type: 2}
-    - target: {fileID: 4060173202401319995, guid: 6522766cc8d29de44912a1adc30de235, type: 3}
-      propertyPath: m_sharedMaterial
-      value: 
-      objectReference: {fileID: -2904158119779576960, guid: 61230527531dfc7409e2e1cad2152059, type: 2}
-    - target: {fileID: 4060173202401319995, guid: 6522766cc8d29de44912a1adc30de235, type: 3}
-      propertyPath: m_hasFontAssetChanged
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4403072346652012751, guid: 6522766cc8d29de44912a1adc30de235, type: 3}
