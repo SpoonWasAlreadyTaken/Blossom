@@ -11,12 +11,16 @@ public class MainMenu : MonoBehaviour
 
     [SerializeField] private GameObject menuBoard;
     [SerializeField] private GameObject logo;
-    [SerializeField] private GameObject disclaimer;
+    [SerializeField] private GameObject[] gameIntro;
 
     private void Start()
     {
         optionsMenu.SetActive(false);
-        disclaimer.SetActive(false);
+
+        for (int i = 0; i < gameIntro.Length; i++)
+        {
+            gameIntro[i].SetActive(false);
+        }
 
         StartCoroutine(ShowLogo());
     }
@@ -69,9 +73,17 @@ public class MainMenu : MonoBehaviour
     private IEnumerator PlayGameStart()
     {
         menuBoard.SetActive(false);
-        disclaimer.SetActive(true);
 
-        yield return new WaitForSeconds(3f);
+        for (int i = 0; i < gameIntro.Length; i++)
+        {
+            for (int e = 0; e < gameIntro.Length; e++)
+            {
+                gameIntro[e].SetActive(false);
+            }
+            gameIntro[i].SetActive(true);
+            yield return new WaitForSeconds(3f);
+        }
+
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
