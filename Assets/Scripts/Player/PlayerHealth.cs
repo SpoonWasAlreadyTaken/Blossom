@@ -238,6 +238,7 @@ public class PlayerHealth : MonoBehaviour
     {
         hitPoints = hitPointMaximum;
         animCloud.SetTrigger("Victory");
+        animPlayer.SetTrigger("Victory");
         GameObject enemy = GameObject.FindGameObjectWithTag("Enemy");
         Destroy(enemy);
 
