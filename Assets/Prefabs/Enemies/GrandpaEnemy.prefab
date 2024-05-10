@@ -32,8 +32,8 @@ Transform:
   m_GameObject: {fileID: 1616145186379268680}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.87, y: -2.61, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 510614862603746883}
@@ -213,7 +213,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hitPoints: 0
-  maximumHitPoints: 50
+  maximumHitPoints: 3
   enemySprite: {fileID: 6746269656558752571}
   spawnOnDeath: 1
   onDeathSpawn: {fileID: 7866100980804237692, guid: cbaac2a409c79c143976d444015e7bdf, type: 3}
