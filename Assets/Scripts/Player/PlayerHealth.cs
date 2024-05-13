@@ -18,6 +18,12 @@ public class PlayerHealth : MonoBehaviour
 
     [SerializeField] private int minSat = 70;
 
+    [Header("Notes")]
+
+    public int noteCount = 0;
+    [SerializeField] GameObject note;
+
+
     [Header("Unity Inputs")]
 
     //unity module acess
@@ -60,6 +66,16 @@ public class PlayerHealth : MonoBehaviour
         ppv = VPPV.GetComponent<Volume>();
         ppv.profile.TryGet<UnityEngine.Rendering.Universal.ColorAdjustments>(out ca);
         deathScreen.SetActive(false);
+
+        noteCount = 0;
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Q) && noteCount > 0)
+        {
+            UseNote();
+        }
     }
 
     void FixedUpdate()
@@ -100,7 +116,6 @@ public class PlayerHealth : MonoBehaviour
 
         if (hitPoints <= 0 && !dead)
         {
-            //temporary in place of what actually happens when the player dies
             StartCoroutine(IDied());
         }
 
@@ -116,7 +131,6 @@ public class PlayerHealth : MonoBehaviour
 
         if (hitPoints <= 0 && !dead)
         {
-            //temporary in place of what actually happens when the player dies
             StartCoroutine(IDied());
         }
 
@@ -181,6 +195,12 @@ public class PlayerHealth : MonoBehaviour
             }
         }
         isHealing = false;
+    }
+
+    public void UseNote()
+    {
+        noteCount--;
+        Instantiate(note, transform.position, transform.rotation);
     }
 
 

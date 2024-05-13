@@ -456,6 +456,8 @@ MonoBehaviour:
   iFrameLength: 0.3
   immune: 0
   minSat: 70
+  noteCount: 0
+  note: {fileID: 2941282738968791398, guid: 294bd97e8227c7945b323768d468209a, type: 3}
   playerSprite: {fileID: 3722127592493129702}
   cloudSprite: {fileID: 6518580498513511990}
   animPlayer: {fileID: 955041520055012006}
@@ -540,7 +542,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackSpeed: 0.3
   attackCooldown: 0.6
-  attackDamage: 1
+  attackDamage: 3
   attackRange: 0.5
   comboAttacks: 1
   comboTime: 1
