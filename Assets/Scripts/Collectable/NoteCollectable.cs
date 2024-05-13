@@ -11,8 +11,8 @@ public class NoteCollectable : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player") && summonNote != null)
         {
-            Instantiate(summonNote);
             Destroy(gameObject);
+            collision.GetComponent<PlayerHealth>().noteCount++;
         }
     }
 }

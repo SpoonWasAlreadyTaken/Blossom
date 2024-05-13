@@ -38,11 +38,11 @@ public class NoteChoice : MonoBehaviour
 
         if (choice == 0)
         {
-            quoteText.text = goodQuotes[goodQuoteRandom];
+            quoteText.text = "''" + goodQuotes[goodQuoteRandom] + "''";
         }
         else
         {
-            quoteText.text = badQuotes[badQuoteRandom];
+            quoteText.text = "''" + badQuotes[badQuoteRandom] + "''";
         }
 
         GameObject player = GameObject.FindGameObjectWithTag("Player");
@@ -53,6 +53,7 @@ public class NoteChoice : MonoBehaviour
     public void CloseNote()
     {
         Time.timeScale = 1f;
+        playerHealth.RegainHealth(1);
         Destroy(gameObject);
     }
 
@@ -69,7 +70,7 @@ public class NoteChoice : MonoBehaviour
         }
         else
         {
-            playerHealth.TakeDamage(regainHitPoints);
+            playerHealth.TakeDamage(regainHitPoints/2);
         }
 
         StartCoroutine(CloseNoteTimer());

@@ -2,14 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 
 public class HealthBar : MonoBehaviour
 {
-    public PlayerHealth player;
-    public Movement movement;
+    [SerializeField] private PlayerHealth player;
+    [SerializeField] private Movement movement;
+
     [SerializeField] private Slider sliderHealth;
     [SerializeField] private Slider sliderStamina;
+    [SerializeField] private TextMeshProUGUI noteCounter;
 
 
 
@@ -20,5 +23,7 @@ public class HealthBar : MonoBehaviour
 
         float fillValueStamina = movement.stamina / movement.staminaMax;
         sliderStamina.value = fillValueStamina;
+
+        noteCounter.text = player.noteCount.ToString();
     }
 }
