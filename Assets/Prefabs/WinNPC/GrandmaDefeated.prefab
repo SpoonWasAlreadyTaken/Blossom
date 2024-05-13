@@ -124,11 +124,15 @@ MonoBehaviour:
   dialogueText: {fileID: 4468878411422150734}
   npcName: {fileID: 1575324271728488837}
   lines:
-  - YOU WIN
-  - OK
+  - I didn't want any cupcakes.
+  - You know... I was just trying to help.
+  - I know granny but I don't think a cupcake is going to help me.
+  - Then you should talk to someone.
   speaker:
-  - GRANDMA
-  - BLOSSOM
+  - Blossom
+  - Grandma
+  - Blossom
+  - Grandma
   textSpeed: 0.1
   dialogueBox: {fileID: 8311376585966163664}
   npcDialogueRange: 3

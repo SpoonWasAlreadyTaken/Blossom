@@ -200,11 +200,13 @@ MonoBehaviour:
   dialogueText: {fileID: 5220051034342227447}
   npcName: {fileID: 7181360050734578748}
   lines:
-  - YOU WIN
-  - OK
+  - I just wanted to help.
+  - I know Pops! But you can't help me.
+  - I'm sorry kiddo, you should go see granny.
   speaker:
-  - GRANDPA
+  - Grandpa
   - BLOSSOM
+  - Grandpa
   textSpeed: 0.1
   dialogueBox: {fileID: 369872442633050985}
   npcDialogueRange: 3
