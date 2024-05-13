@@ -7347,18 +7347,19 @@ MonoBehaviour:
   dialogueText: {fileID: 1326338842}
   npcName: {fileID: 483857679}
   lines:
-  - Hi there Blossom! You don't look so well child, did something happen?
-  - I don't feel so great. I think I have depression.
-  - Don't be ridiculous! These days young people are so soft! Back in my day there
-    was no such thing as depression.
-  - It's all made up by those bloody HIPPIES!!!
-  - '):'
+  - Hey there Pops.
+  - Hi kiddo! Why are you looking down?
+  - I'm not doing great, I think I am depressed.
+  - Back in my day there was no such thing as depression. You should just smile more.
+  - Saying smile more won't you know.
+  - It will if you just SMILE MORE!
   speaker:
-  - Old Man Grandpa
   - Blossom
-  - Old Man Grandpa
-  - Old Man Grandpa
+  - Grandpa
   - Blossom
+  - Grandpa
+  - Blossom
+  - Grandpa
   textSpeed: 0.1
   dialogueBox: {fileID: 1992725924}
   npcDialogueRange: 3

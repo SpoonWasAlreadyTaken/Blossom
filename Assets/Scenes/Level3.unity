@@ -9586,11 +9586,29 @@ MonoBehaviour:
   dialogueText: {fileID: 1878917338}
   npcName: {fileID: 1878917337}
   lines:
-  - 'GET BETTER '
-  - NO
+  - So tell me what are you feeling?
+  - Well I'm feeling sad and I think I am depressed.Well I'm feeling sad and I think
+    I am depressed.
+  - Do you know why that might be?
+  - I don't know, I just am.
+  - Then tell me about anything else that has been happening.
+  - Nothing has been happening, I just feel sad.
+  - Have you tried taking any medication. I know you might not want to but it is
+    okay if you need to.
+  - No. I don't need medication, I'll just get through the sadness on my own.
+  - It's okay to need help and it looks like you need it.
+  - I don't need any help. I'M FINE!
   speaker:
-  - THERAPIST
-  - BLOSSOM
+  - Therapist
+  - Blossom
+  - Therapist
+  - Blossom
+  - Therapist
+  - Blossom
+  - Therapist
+  - Blossom
+  - Therapist
+  - Blossom
   textSpeed: 0.1
   dialogueBox: {fileID: 1878917335}
   npcDialogueRange: 3

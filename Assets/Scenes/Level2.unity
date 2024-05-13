@@ -45245,11 +45245,17 @@ MonoBehaviour:
   dialogueText: {fileID: 48098647}
   npcName: {fileID: 48098646}
   lines:
-  - I AM GRANDMA
-  - HELP
+  - Is that my favorite grandchild?
+  - Hi granny, it's me Blossom.
+  - Aren't you looking skinny. You should have a cupcake.
+  - I don't want any granny, I'm just sad.
+  - Then you should have a cupcake it will make you happier.
   speaker:
-  - GRANDMA
-  - BLOSSOM
+  - Grandma
+  - Blossom
+  - Grandma
+  - Blossom
+  - Grandma
   textSpeed: 0.1
   dialogueBox: {fileID: 48098644}
   npcDialogueRange: 3
