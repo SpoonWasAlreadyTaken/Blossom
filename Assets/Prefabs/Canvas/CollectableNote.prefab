@@ -282,25 +282,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goodQuotes:
-  - "The elevator to success is out of order. You\u2019ll have to use the stairs,
-    one step at a time."
-  - People say nothing is impossible, but I do nothing every day.
-  - It doesn't matter how many steps you take or how big they are, just that you
-    take them.
-  - Do the best you can. No one can do more than that.
-  - If you can dream it, you can do it.
-  - Do what you can, with what you have, where you are.
-  - Do what you can, with what you have, where you are.
-  - Just one small positive thought in the morning can change your whole day
+  - "It\u2019s always a good day to make bad decisions."
+  - "Don\u2019t. Worry. "
+  - "Don\u2019t be sad. You\u2019re making everyone uncomfortable."
+  - You can do it. But why?
+  - "Things could always be worse. You could be dead. Unless you\u2019re into that. "
+  - "You will be okey. Or you won\u2019t. One of those. "
+  - "Stop worrying about what other people think. I mean, have you met other people?
+    They\u2019re awful."
+  - "One day I was born\u2026. Then everything bothered me. "
+  - Wherever you go, there u are. The same miserable person, just in a different
+    location.
+  - "Have a panic attack. You\u2019ve earned it."
   badQuotes:
-  - You should smile more.
-  - Your only limit is you.
-  - Better an oops than a what if.
-  - Only dead fish go with the flow.
-  - The reward for work well done is the opportunity to do more.
-  - I never notice what has been done. I only see what remains to be done.
-  - The only way to enjoy life is to work. Work is much more fun than fun.
-  - You can always quit. So why quit now.
+  - Life is better when u smile more.
+  - You can do it!
+  - "Don\u2019t worry, stay happy."
   quoteText: {fileID: 3553439767427976841}
   closedNote: {fileID: 5484570847352250562}
   openNote: {fileID: 3871215923394447041}
@@ -379,8 +376,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4281479730
-  m_fontColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+    rgba: 4278849814
+  m_fontColor: {r: 0.08627451, g: 0.06666667, b: 0.039215688, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -799,8 +796,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 3355443200
-  m_fontColor: {r: 0, g: 0, b: 0, a: 0.78431374}
+    rgba: 3356102934
+  m_fontColor: {r: 0.08627451, g: 0.06666667, b: 0.039215688, a: 0.78431374}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -933,8 +930,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4281479730
-  m_fontColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+    rgba: 4278849814
+  m_fontColor: {r: 0.08627451, g: 0.06666667, b: 0.039215688, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
