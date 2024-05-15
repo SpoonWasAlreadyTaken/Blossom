@@ -31,6 +31,7 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] private SpriteRenderer cloudSprite;
     [SerializeField] private Animator animPlayer;
     [SerializeField] private Animator animCloud;
+    [SerializeField] private SceneData sceneData;
 
 
     [Header("Disable Components")]
@@ -68,7 +69,23 @@ public class PlayerHealth : MonoBehaviour
         deathScreen.SetActive(false);
 
         noteCount = 0;
+
+        if (SceneData.hasSavedData)
+        {
+            hitPoints = SceneData.currentHitPoints;
+            hitPointMaximum = SceneData.currentMaxHitPoints;
+            noteCount = SceneData.currentNoteCount;
+        }
     }
+
+    public void NextLevel()
+    {
+        SceneData.currentHitPoints = hitPoints; 
+        SceneData.currentMaxHitPoints = hitPointMaximum;    
+        SceneData.currentNoteCount = noteCount; 
+        SceneData.hasSavedData = true;
+    }
+
 
     private void Update()
     {

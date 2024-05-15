@@ -462,6 +462,7 @@ MonoBehaviour:
   cloudSprite: {fileID: 6518580498513511990}
   animPlayer: {fileID: 955041520055012006}
   animCloud: {fileID: 1010656849192692308}
+  sceneData: {fileID: 11400000, guid: bd6115dd41b43294584dcaa1751e7b45, type: 2}
   movement: {fileID: 5829812436954659017}
   attackStick: {fileID: 6549949167805393425}
   deathScreen: {fileID: 0}
