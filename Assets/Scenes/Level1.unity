@@ -1052,6 +1052,10 @@ PrefabInstance:
       propertyPath: victoryScreen
       value: 
       objectReference: {fileID: 1895815262}
+    - target: {fileID: 5331760786623344971, guid: 33dc0f9541a69d94ba4eb3026db83f09, type: 3}
+      propertyPath: m_Volume
+      value: 0.05
+      objectReference: {fileID: 0}
     - target: {fileID: 8082932989220392866, guid: 33dc0f9541a69d94ba4eb3026db83f09, type: 3}
       propertyPath: m_LocalPosition.x
       value: -16.57

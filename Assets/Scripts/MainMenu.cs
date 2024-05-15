@@ -11,7 +11,14 @@ public class MainMenu : MonoBehaviour
 
     [SerializeField] private GameObject menuBoard;
     [SerializeField] private GameObject logo;
+
     [SerializeField] private GameObject[] gameIntro;
+    [SerializeField] private GameObject intro;
+    [SerializeField] private GameObject backButton;
+
+    private int tutorialPage;
+
+    [SerializeField] private SceneData sceneData;
 
     private void Start()
     {
@@ -22,7 +29,11 @@ public class MainMenu : MonoBehaviour
             gameIntro[i].SetActive(false);
         }
 
+        intro.SetActive(false);
+
         StartCoroutine(ShowLogo());
+
+        SceneData.hasSavedData = false;
     }
 
     private void Update()
@@ -38,7 +49,10 @@ public class MainMenu : MonoBehaviour
     public void PlayGame()
 
     {
-        StartCoroutine(PlayGameStart());
+        menuBoard.SetActive(false);
+        intro.SetActive(true);
+        tutorialPage = 0;
+        Tutorial();
     }
 
     public void QuitGame()
@@ -70,21 +84,42 @@ public class MainMenu : MonoBehaviour
     }
 
 
-    private IEnumerator PlayGameStart()
+    public void ButtonForward()
     {
-        menuBoard.SetActive(false);
-
-        for (int i = 0; i < gameIntro.Length; i++)
+        tutorialPage++;
+        if (tutorialPage >= gameIntro.Length)
         {
-            for (int e = 0; e < gameIntro.Length; e++)
-            {
-                gameIntro[e].SetActive(false);
-            }
-            gameIntro[i].SetActive(true);
-            yield return new WaitForSeconds(3f);
+            intro.SetActive(false);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        }
+        else
+        {
+            Tutorial();
+        }
+    }
+
+    public void ButtonBack()
+    {
+        tutorialPage--;
+        Tutorial();
+    }
+
+    private void Tutorial()
+    {
+        if (tutorialPage == 0)
+        {
+            backButton.SetActive(false);
+        }
+        else
+        {
+            backButton.SetActive(true);
         }
 
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        for (int i = 0; i  < gameIntro.Length; i++) 
+        {
+            gameIntro[i].SetActive(false);
+        }
+        gameIntro[tutorialPage].SetActive(true);
     }
 
     private IEnumerator ShowLogo()

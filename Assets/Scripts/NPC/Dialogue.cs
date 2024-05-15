@@ -15,6 +15,7 @@ public class Dialogue : MonoBehaviour
     [SerializeField] private string[] speaker;
     [SerializeField] private float textSpeed = .1f;
     [SerializeField] private GameObject dialogueBox;
+
     //Background values
     [SerializeField] private float npcDialogueRange = 3f;
 
@@ -39,6 +40,7 @@ public class Dialogue : MonoBehaviour
     private bool ableToProceed = false;
     private float distanceDoor;
     private GameObject playerCharacter;
+    private PlayerHealth playerHealth;
 
 
     private int index;
@@ -46,6 +48,7 @@ public class Dialogue : MonoBehaviour
     private void Awake()
     {
         playerCharacter = GameObject.FindGameObjectWithTag("Player");
+        playerHealth = playerCharacter.GetComponent<PlayerHealth>();
     }
 
 
@@ -83,6 +86,7 @@ public class Dialogue : MonoBehaviour
         {
             if (ableToProceed && distanceDoor < doorSize && Input.GetKeyDown(KeyCode.E))
             {
+                playerHealth.NextLevel();
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
             }
         }
