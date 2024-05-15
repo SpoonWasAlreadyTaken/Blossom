@@ -26,7 +26,7 @@ public class PlayerHealth : MonoBehaviour
 
     [Header("Unity Inputs")]
 
-    //unity module acess
+    //unity module access
     [SerializeField] private SpriteRenderer playerSprite;
     [SerializeField] private SpriteRenderer cloudSprite;
     [SerializeField] private Animator animPlayer;

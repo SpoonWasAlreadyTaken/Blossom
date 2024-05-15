@@ -34,7 +34,7 @@ public class EnemyTherapist : MonoBehaviour
     [SerializeField] private AudioSource audioThrow;
     [SerializeField] private Rigidbody2D therapist;
     [SerializeField] private SpriteRenderer spriteTherapist;
-    [SerializeField] private EnemyHealth health;
+    private PlayerHealth health;
 
 
     //Private inaccessable 
@@ -52,6 +52,7 @@ public class EnemyTherapist : MonoBehaviour
     {
         attackCD = attackSpeed;
         player = GameObject.FindGameObjectWithTag("Player");
+        health = player.GetComponent<PlayerHealth>();
     }
 
 
@@ -150,7 +151,7 @@ public class EnemyTherapist : MonoBehaviour
 
         audioThrow.Play();
 
-        if (health.hitPoints < health.maximumHitPoints/3)
+        if (health.hitPoints < health.hitPointMaximum/3)
         {
             Instantiate(projectiles[2], attackOrigin.position, attackOrigin.rotation);
             Debug.Log("Won");

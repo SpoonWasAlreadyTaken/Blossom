@@ -17,6 +17,8 @@ public class NoteChoice : MonoBehaviour
     [SerializeField] private GameObject closedNote;
     [SerializeField] private GameObject openNote;
     [SerializeField] int regainHitPoints = 5;
+    [SerializeField] private GameObject goodSymbol;
+    [SerializeField] private GameObject badSymbol;
 
 
     private int choice;
@@ -35,6 +37,10 @@ public class NoteChoice : MonoBehaviour
         Debug.Log(choice);
 
         openNote.SetActive(false);
+
+        goodSymbol.SetActive(false);
+        badSymbol.SetActive(false);
+
 
         if (choice == 0)
         {
@@ -67,10 +73,12 @@ public class NoteChoice : MonoBehaviour
         if (choice == 0)
         {
             playerHealth.RegainHealth(regainHitPoints);
+            goodSymbol.SetActive(true);
         }
         else
         {
             playerHealth.TakeDamage(regainHitPoints/2);
+            badSymbol.SetActive(true);
         }
 
         StartCoroutine(CloseNoteTimer());
@@ -78,7 +86,7 @@ public class NoteChoice : MonoBehaviour
 
     private IEnumerator CloseNoteTimer()
     {
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(4f);
         Destroy(gameObject);
     }
 }
