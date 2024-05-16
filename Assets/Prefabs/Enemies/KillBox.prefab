@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4459449941085301674}
   - component: {fileID: 3604454478647426843}
-  - component: {fileID: 7795524240238833194}
+  - component: {fileID: 1596720085436136582}
   m_Layer: 0
   m_Name: KillBox
   m_TagString: Untagged
@@ -78,7 +78,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &7795524240238833194
+--- !u!114 &1596720085436136582
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
