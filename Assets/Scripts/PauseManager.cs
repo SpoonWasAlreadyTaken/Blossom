@@ -9,6 +9,7 @@ public class PauseManager : MonoBehaviour
     [SerializeField] private GameObject optionsMenu;
     public static bool isPaused = false;
     private bool isOptions = false;
+    [SerializeField] private SceneData sceneData;
 
     private void Start()
     {
@@ -73,12 +74,14 @@ public class PauseManager : MonoBehaviour
 
     public void GoToMainMenu()
     {
+        SceneData.hasSavedData = false;
         Time.timeScale = 1f;
         SceneManager.LoadScene("MainMenu");
     }
 
     public void TryAgain()
     {
+        SceneData.hasSavedData = false;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 

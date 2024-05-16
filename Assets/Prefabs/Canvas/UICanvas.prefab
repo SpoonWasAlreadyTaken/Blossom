@@ -2139,6 +2139,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pauseMenu: {fileID: 9124507860169371071}
   optionsMenu: {fileID: 8437826849349942432}
+  sceneData: {fileID: 11400000, guid: bd6115dd41b43294584dcaa1751e7b45, type: 2}
 --- !u!114 &1768766204013682662
 MonoBehaviour:
   m_ObjectHideFlags: 0

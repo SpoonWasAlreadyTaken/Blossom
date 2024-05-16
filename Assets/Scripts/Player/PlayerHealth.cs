@@ -4,7 +4,6 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
-using UnityEngine.Rendering.HighDefinition;
 
 public class PlayerHealth : MonoBehaviour
 {
@@ -117,6 +116,11 @@ public class PlayerHealth : MonoBehaviour
             StartCoroutine(Victory());
             clickToWin = false;
         }
+
+        if (ppv != null && ca != null)
+        {
+            ca.saturation.value = (hitPoints / hitPointMaximum * minSat) - minSat;
+        }
     }
 
     public void TakeDamage(int damage)
@@ -135,11 +139,6 @@ public class PlayerHealth : MonoBehaviour
         {
             StartCoroutine(IDied());
         }
-
-        if (ppv != null && ca != null)
-        {
-            ca.saturation.value = (hitPoints/hitPointMaximum * minSat) - minSat;
-        }
     }
 
     public void TakeDamageIgnoreIFrames(int damage)
@@ -150,11 +149,6 @@ public class PlayerHealth : MonoBehaviour
         {
             StartCoroutine(IDied());
         }
-
-        if (ppv != null && ca != null)
-        {
-            ca.saturation.value = (hitPoints/hitPointMaximum * minSat) - minSat;
-        }
     }
 
     public void RegainHealth(int healing)
@@ -164,11 +158,6 @@ public class PlayerHealth : MonoBehaviour
         if (!isHealing && !dead)
         {
             StartCoroutine(HealFlashing());
-        }
-        
-        if (ppv != null && ca != null)
-        {
-            ca.saturation.value = (hitPoints/hitPointMaximum * minSat) - minSat;
         }
     }
 
