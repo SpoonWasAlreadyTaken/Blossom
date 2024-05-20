@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4076651849659230550, guid: 57f8bb543bbfed34eb1173c82c983277, type: 3}
       propertyPath: m_Name
-      value: OptionsMenu Variant
+      value: OptionsMenuMain
       objectReference: {fileID: 0}
     - target: {fileID: 5238641402780095032, guid: 57f8bb543bbfed34eb1173c82c983277, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
@@ -99,6 +99,14 @@ PrefabInstance:
     - target: {fileID: 6190643317002282165, guid: 57f8bb543bbfed34eb1173c82c983277, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7610875686465074126, guid: 57f8bb543bbfed34eb1173c82c983277, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 7610875686465074126, guid: 57f8bb543bbfed34eb1173c82c983277, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 125
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
