@@ -496,7 +496,7 @@ MonoBehaviour:
   staminaRegeneration: 5
   fallDamageEnabled: 1
   fallDamageThreshold: -30
-  fallDamageMultiplier: 0.1
+  fallDamageMultiplier: 0.3
   groundCheck: {fileID: 8451035701373528587}
   wallCheck: {fileID: 3724820556180423719}
   wallCheckSize: 0.35

@@ -57,7 +57,7 @@ public class PillProjectile : MonoBehaviour
             }
             if (pillGold)
             {
-                player.Win();
+                player.VictoryLap();
 
             }
 
