@@ -70,6 +70,7 @@ public class TunnelLight : MonoBehaviour
     {
         escaped = true;
         yield return new WaitForSeconds(3f);
+        playerHealth.NextLevel();
         SceneManager.LoadScene("Victory");
     }
 

@@ -257,6 +257,7 @@ public class PlayerHealth : MonoBehaviour
 
     public void VictoryLap()
     {
+        NextLevel();
         SceneManager.LoadScene("Tunnel");
     }
 
