@@ -20,6 +20,7 @@ public class ObjectSpawner : MonoBehaviour
     [SerializeField] private float minSizeX = 1f;
     [SerializeField] private float minSizeY = 1f;
     [SerializeField] private bool randomSize = false;
+    [SerializeField] private bool sameDimensions = true;
     [SerializeField] private bool spawnRandom;
 
 
@@ -51,7 +52,15 @@ public class ObjectSpawner : MonoBehaviour
 
                     if (randomSize)
                     {
-                        spawnSize = new Vector3(Random.Range(minSizeX, sizeX), Random.Range(minSizeY, sizeY), 1);
+                        if (sameDimensions)
+                        {
+                            float spawnSizeSame = Random.Range(((minSizeX + minSizeY) / 2), ((sizeX + sizeY) / 2));
+                            spawnSize = new Vector3(spawnSizeSame, spawnSizeSame, 1);
+                        }
+                        else
+                        {
+                            spawnSize = new Vector3(Random.Range(minSizeX, sizeX), Random.Range(minSizeY, sizeY), 1);
+                        }
                     }
 
                     newObject.transform.localScale = spawnSize;
@@ -70,7 +79,15 @@ public class ObjectSpawner : MonoBehaviour
 
                     if (randomSize)
                     {
-                        spawnSize = new Vector3(Random.Range(minSizeX, sizeX), Random.Range(minSizeY, sizeY), 1);
+                        if (sameDimensions)
+                        {
+                            float spawnSizeSame = Random.Range(((minSizeX + minSizeY) / 2), ((sizeX + sizeY) / 2));
+                            spawnSize = new Vector3(spawnSizeSame, spawnSizeSame, 1);
+                        }
+                        else
+                        {
+                            spawnSize = new Vector3(Random.Range(minSizeX, sizeX), Random.Range(minSizeY, sizeY), 1);
+                        }
                     }
 
                     newObject.transform.localScale = spawnSize;
@@ -99,7 +116,15 @@ public class ObjectSpawner : MonoBehaviour
 
                     if (randomSize)
                     {
-                        spawnSize = new Vector3(Random.Range(minSizeX, sizeX), Random.Range(minSizeY, sizeY), 1);
+                        if (sameDimensions)
+                        {
+                            float spawnSizeSame = Random.Range(((minSizeX + minSizeY) / 2), ((sizeX + sizeY) / 2));
+                            spawnSize = new Vector3(spawnSizeSame, spawnSizeSame, 1);
+                        }
+                        else
+                        {
+                            spawnSize = new Vector3(Random.Range(minSizeX, sizeX), Random.Range(minSizeY, sizeY), 1);
+                        }
                     }
 
                     newObject.transform.localScale = spawnSize;
@@ -121,7 +146,15 @@ public class ObjectSpawner : MonoBehaviour
 
                     if (randomSize)
                     {
-                        spawnSize = new Vector3(Random.Range(minSizeX, sizeX), Random.Range(minSizeY, sizeY), 1);
+                        if (sameDimensions)
+                        {
+                            float spawnSizeSame = Random.Range(((minSizeX + minSizeY) / 2), ((sizeX + sizeY) / 2));
+                            spawnSize = new Vector3(spawnSizeSame, spawnSizeSame, 1);
+                        }
+                        else
+                        {
+                            spawnSize = new Vector3(Random.Range(minSizeX, sizeX), Random.Range(minSizeY, sizeY), 1);
+                        }
                     }
 
                     newObject.transform.localScale = spawnSize;

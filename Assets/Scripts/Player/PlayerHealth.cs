@@ -255,6 +255,12 @@ public class PlayerHealth : MonoBehaviour
         isPoisoned = false;
     }
 
+    public void VictoryLap()
+    {
+        SceneManager.LoadScene("Tunnel");
+    }
+
+
     public void Win()
     {
         StartCoroutine(Victory());

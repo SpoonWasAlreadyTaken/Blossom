@@ -18,6 +18,12 @@ EditorBuildSettings:
     path: Assets/Scenes/Level3.unity
     guid: 757cb976241268f4992291131c3d7e11
   - enabled: 1
+    path: Assets/Scenes/Tunnel.unity
+    guid: a956c8180a7d369409350b6aab3b4fcd
+  - enabled: 1
+    path: Assets/Scenes/Victory.unity
+    guid: 127a13f2476f4a340ac3fa02ee5688bd
+  - enabled: 1
     path: Assets/Scenes/Door.unity
     guid: 24d59770946b48143b85543b8b540dfe
   m_configObjects: {}
