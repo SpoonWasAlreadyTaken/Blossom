@@ -190,7 +190,7 @@ MonoBehaviour:
   spawnOnDeath: 1
   onDeathSpawn: {fileID: 4596388098369609451, guid: d9d990913bf3c474b901de033f90287b, type: 3}
   healthBar: {fileID: 7104767921288610572}
-  isDummy: 1
+  isDummy: 0
 --- !u!1001 &8382570046943249069
 PrefabInstance:
   m_ObjectHideFlags: 0
