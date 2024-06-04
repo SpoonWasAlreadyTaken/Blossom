@@ -64,6 +64,7 @@ public class MainMenu : MonoBehaviour
     public void OptionsMenu()
     {
         optionsMenu.SetActive(true);
+        menuBoard.SetActive(false);
         isOptions = true;
 
         for (int i = 0; i < buttons.Length; i++)
@@ -75,6 +76,7 @@ public class MainMenu : MonoBehaviour
     public void ReturnMenu()
     {
         optionsMenu.SetActive(false);
+        menuBoard.SetActive(true);
         isOptions = false;
 
         for (int i = 0; i < buttons.Length; i++)

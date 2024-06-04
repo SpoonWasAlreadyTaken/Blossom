@@ -28227,6 +28227,10 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 1998831524}
+    - target: {fileID: 2444915120990615882, guid: 5352e19591fe7224b952f4273c15c985, type: 3}
+      propertyPath: m_UpdateRectTransformForStandalone
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2808193945641665319, guid: 5352e19591fe7224b952f4273c15c985, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0

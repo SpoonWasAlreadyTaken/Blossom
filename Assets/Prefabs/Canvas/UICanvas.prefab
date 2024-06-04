@@ -765,7 +765,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_VertexColorAlwaysGammaSpace: 0
   m_AdditionalShaderChannelsFlag: 25
-  m_UpdateRectTransformForStandalone: 0
+  m_UpdateRectTransformForStandalone: 1
   m_SortingLayerID: 0
   m_SortingOrder: 100
   m_TargetDisplay: 0
@@ -2808,23 +2808,23 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 412613016133896493, guid: 57f8bb543bbfed34eb1173c82c983277, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 412613016133896493, guid: 57f8bb543bbfed34eb1173c82c983277, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 759798916187306371, guid: 57f8bb543bbfed34eb1173c82c983277, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 759798916187306371, guid: 57f8bb543bbfed34eb1173c82c983277, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 759798916187306371, guid: 57f8bb543bbfed34eb1173c82c983277, type: 3}
       propertyPath: m_AnchorMin.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4076651849659230550, guid: 57f8bb543bbfed34eb1173c82c983277, type: 3}
       propertyPath: m_Name
@@ -2926,6 +2926,14 @@ PrefabInstance:
       propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1768766204013682662}
+    - target: {fileID: 7610875686465074126, guid: 57f8bb543bbfed34eb1173c82c983277, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 7610875686465074126, guid: 57f8bb543bbfed34eb1173c82c983277, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 125
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
