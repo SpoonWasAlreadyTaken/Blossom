@@ -185,10 +185,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hitPoints: 0
-  maximumHitPoints: 500
+  maximumHitPoints: 80
   enemySprite: {fileID: 5628274931147021913}
-  spawnOnDeath: 0
-  onDeathSpawn: {fileID: 0}
+  spawnOnDeath: 1
+  onDeathSpawn: {fileID: 4596388098369609451, guid: d9d990913bf3c474b901de033f90287b, type: 3}
   healthBar: {fileID: 7104767921288610572}
   isDummy: 1
 --- !u!1001 &8382570046943249069

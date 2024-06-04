@@ -453,7 +453,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hitPoints: 0
   hitPointMaximum: 50
-  iFrameLength: 0.3
+  iFrameLength: 0.35
   immune: 0
   minSat: 70
   noteCount: 0
